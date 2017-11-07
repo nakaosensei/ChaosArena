@@ -1,0 +1,28 @@
+                   Warning
+
+The Ai is really strong it even got rare-akumas lp below half LOL A 
+little joke is good sometimes
+
+-------------------Bewarned
+
+--------------------------------------------
+
+
+AI-NoGo File: Is the Cmd without Ai Commands
+
+
+AI-ToGo File: Is the Cmd With Ai Commands
+
+
+++++++++++++++++++++++++++++++++++++++++++++++
+
+How To put it in?
+
+just go to the chars Def file open it and look for
+Where it say; (ExampleS)[cmd =Here.cmd] Insert AI-NoGo or AI-ToGo
+Where You see it shows AI-NoGo.
+
+Do not remove the Ai files from their current location.
+------------------------------------------------------>
+^_^ ^_^ ^_^ Enjoy The Char and HAVE FUN ^_^ ^_^ ^_^ 
+------------------------------------------------------>

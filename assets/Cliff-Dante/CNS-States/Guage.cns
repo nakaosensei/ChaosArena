@@ -1,0 +1,2766 @@
+;---------------------------------------------------------------------------
+;Guage Credits: Elecbyte
+[Statedef 3000]
+anim = 3000
+ownpal = 1
+
+[State 3000, helper]
+type = Helper
+trigger1 = var(58) = [2000,3999]
+trigger1 = !NumHelper(3010)
+id = 3010
+name = "dope"
+pos = 0,-200
+postype = back
+stateno = 3010
+helpertype = normal
+bindtime = -1
+keyctrl = 0
+ownpal = 1
+pausemovetime = 99999999999999
+
+[State 3000, helper]
+type = Helper
+trigger1 = var(58) = [4000,6999]
+trigger1 = !NumHelper(3011)
+id = 3011
+name = "crazy"
+pos = 0,-200
+postype = back
+stateno = 3011
+helpertype = normal
+bindtime = -1
+keyctrl = 0
+ownpal = 1
+pausemovetime = 99999999999999
+
+[State 3000, helper]
+type = Helper
+trigger1 = var(58) = [7000,10999]
+trigger1 = !NumHelper(3012)
+id = 3012
+name = "blast"
+pos = 0,-200
+postype = back
+stateno = 3012
+helpertype = normal
+bindtime = -1
+keyctrl = 0
+ownpal = 1
+pausemovetime = 99999999999999
+
+[State 3000, helper]
+type = Helper
+trigger1 = var(58) = [11000,15999]
+trigger1 = !NumHelper(3013)
+id = 3013
+name = "alright"
+pos = 0,-200
+postype = back
+stateno = 3013
+helpertype = normal
+bindtime = -1
+keyctrl = 0
+ownpal = 1
+pausemovetime = 99999999999999
+
+[State 3000, helper]
+type = Helper
+trigger1 = var(58) = [16000,21999]
+trigger1 = !NumHelper(3014)
+id = 3014
+name = "sweet"
+pos = 0,-200
+postype = back
+stateno = 3014
+helpertype = normal
+bindtime = -1
+keyctrl = 0
+ownpal = 1
+pausemovetime = 99999999999999
+
+[State 3000, helper]
+type = Helper
+trigger1 = var(58) = [22000,28999]
+trigger1 = !NumHelper(3015)
+id = 3015
+name = "showtime"
+pos = 0,-200
+postype = back
+stateno = 3015
+helpertype = normal
+bindtime = -1
+keyctrl = 0
+ownpal = 1
+pausemovetime = 99999999999999
+
+[State 3000, helper]
+type = Helper
+trigger1 = var(58) >= 28999
+trigger1 = !NumHelper(3016)
+id = 3016
+name = "stylish"
+pos = 0,-200
+postype = back
+stateno = 3016
+helpertype = normal
+bindtime = -1
+keyctrl = 0
+ownpal = 1
+pausemovetime = 99999999999999
+
+[State 3000]
+type = Varset
+trigger1 = 1
+v = 58
+value = root,var(58)
+
+[Statedef 3010]
+anim = 3000
+ownpal = 1
+
+[State 3000, Explod]
+type = Explod
+trigger1 = time = 1
+trigger1 = !NumExplod(3001)
+trigger1 = teamside = 1
+anim = 3001
+id = 3001
+postype = left
+pos = -20,40
+ownpal = 1
+bindtime = -1
+ignorehitpause = 1
+ontop = 1
+facing = 1
+pausemovetime = -1
+scale = 0.5,0.5
+
+[State 3000, Explod]
+type = Explod
+trigger1 = time = 15
+trigger1 = !NumExplod(3008)
+trigger1 = teamside = 1
+anim = 3008
+id = 3008
+postype = left
+pos = 25,60
+ownpal = 1
+bindtime = -1
+ignorehitpause = 1
+sprpriority = 4
+facing = 1
+pausemovetime = -1
+scale = 0.5,0.5
+
+[State 3000, Explod]
+type = Explod
+trigger1 = time = 15
+trigger1 = !NumExplod(3009)
+trigger1 = teamside = 1
+anim = 3009
+id = 3009
+postype = left
+pos = 39,68
+ownpal = 1
+bindtime = -1
+ignorehitpause = 1
+sprpriority = 5
+facing = 1
+pausemovetime = -1
+scale = 0.5,0.5
+
+[State 3000, Explod]
+type = Explod
+trigger1 = time = 1
+trigger1 = !NumExplod(3001)
+trigger1 = teamside = 2
+anim = 3001
+id = 3001
+postype = Right
+pos = -100,40
+ownpal = 1
+bindtime = -1
+ignorehitpause = 1
+ontop = 1
+facing = 1
+pausemovetime = -1
+scale = 0.5,0.5
+
+[State 3000, Explod]
+type = Explod
+trigger1 = time = 15
+trigger1 = !NumExplod(3008)
+trigger1 = teamside = 2
+anim = 3008
+id = 3008
+postype = Right
+pos = -60,60
+ownpal = 1
+bindtime = -1
+ignorehitpause = 1
+sprpriority = 4
+facing = 1
+pausemovetime = -1
+scale = 0.5,0.5
+
+[State 3000, Explod]
+type = Explod
+trigger1 = time = 15
+trigger1 = !NumExplod(3009)
+trigger1 = teamside = 2
+anim = 3009
+id = 3009
+postype = Right
+pos = -48,68
+ownpal = 1
+bindtime = -1
+ignorehitpause = 1
+sprpriority = 5
+facing = 1
+pausemovetime = -1
+scale = 0.5,0.5
+
+[State 3000, Explod]
+type = ModifyExplod
+trigger1 = parent,var(58) != [2000,3999]
+ID = 3001
+removetime = 0
+
+[State 3000, Explod]
+type = ModifyExplod
+trigger1 = parent,var(58) != [2000,3999]
+ID = 3008
+removetime = 0
+
+[State 3000, Explod]
+type = ModifyExplod
+trigger1 = parent,var(58) != [2000,3999]
+ID = 3009
+removetime = 0
+
+[State 3000, Varset]
+type = Varset
+trigger1 = 1
+fv = 1
+value = (root,var(58)-2000)*0.00025
+
+[State 3000, Explod]
+type = ModifyExplod
+trigger1 = 1
+ID = 3009
+scale = fvar(1), 1
+
+[State 3000, Explod]
+type = DestroySelf
+trigger1 = time > 10
+trigger1 = !NumExplod(3001)
+trigger1 = !NumExplod(3008)
+trigger1 = parent,var(58) != [2000,3999]
+
+;---------------------------------------------------------------------------
+[Statedef 3011]
+anim = 3000
+ownpal = 1
+
+[State 3000, Explod]
+type = Explod
+trigger1 = time = 0
+trigger1 = !NumExplod(3002)
+trigger1 = teamside = 1
+anim = 3002
+id = 3002
+postype = left
+pos = -20,40
+ownpal = 1
+bindtime = -1
+ignorehitpause = 1
+ontop = 1
+facing = 1
+pausemovetime = -1
+scale = 0.5,0.5
+
+[State 3000, Explod]
+type = Explod
+trigger1 = time = 1
+trigger1 = !NumExplod(3002)
+trigger1 = teamside = 2
+anim = 3002
+id = 3002
+postype = Right
+pos = -100,40
+ownpal = 1
+bindtime = -1
+ignorehitpause = 1
+ontop = 1
+facing = 1
+pausemovetime = -1
+scale = 0.5,0.5
+
+[State 3000, Explod]
+type = Explod
+trigger1 = time = 15
+trigger1 = !NumExplod(3008)
+trigger1 = teamside = 1
+anim = 3008
+id = 3008
+postype = left
+pos = 25,60
+ownpal = 1
+bindtime = -1
+ignorehitpause = 1
+sprpriority = 4
+facing = 1
+pausemovetime = -1
+scale = 0.5,0.5
+
+[State 3000, Explod]
+type = ModifyExplod
+trigger1 = parent,var(58) != [4000,6999]
+ID = 3002
+removetime = 0
+
+[State 3000, Explod]
+type = ModifyExplod
+trigger1 = parent,var(58) != [4000,6999]
+ID = 3008
+removetime = 0
+
+[State 3000, Explod]
+type = Explod
+trigger1 = time = 15
+trigger1 = !NumExplod(3009)
+trigger1 = teamside = 1
+anim = 3009
+id = 3009
+postype = left
+pos = 39,67
+ownpal = 1
+bindtime = -1
+ignorehitpause = 1
+sprpriority = 5
+facing = 1
+pausemovetime = -1
+scale = 0.5,0.5
+
+[State 3000, Explod]
+type = Explod
+trigger1 = time = 15
+trigger1 = !NumExplod(3008)
+trigger1 = teamside = 2
+anim = 3008
+id = 3008
+postype = Right
+pos = -60,60
+ownpal = 1
+bindtime = -1
+ignorehitpause = 1
+sprpriority = 4
+facing = 1
+pausemovetime = -1
+scale = 0.5,0.5
+
+[State 3000, Explod]
+type = Explod
+trigger1 = time = 15
+trigger1 = !NumExplod(3009)
+trigger1 = teamside = 2
+anim = 3009
+id = 3009
+postype = Right
+pos = -48,68
+ownpal = 1
+bindtime = -1
+ignorehitpause = 1
+sprpriority = 5
+facing = 1
+pausemovetime = -1
+scale = 0.5,0.5
+
+[State 3000, Explod]
+type = ModifyExplod
+trigger1 = parent,var(58) != [4000,6999]
+ID = 3009
+removetime = 0
+
+[State 3000]
+type = Varset
+trigger1 = 1
+fv = 1
+value = (root,var(58)-4000)*0.0001665
+
+[State 3000, Explod]
+type = ModifyExplod
+trigger1 = 1
+ID = 3009
+scale = fvar(1), 1
+
+[State 3000, Explod]
+type = DestroySelf
+trigger1 = time > 10
+trigger1 = !NumExplod(3002)
+trigger1 = !NumExplod(3008)
+trigger1 = parent,var(58) != [4000,6999]
+;---------------------------------------------------------------------------
+[Statedef 3012]
+anim = 3000
+ownpal = 1
+
+[State 3000, Explod]
+type = Explod
+trigger1 = time = 0
+trigger1 = !NumExplod(3003)
+trigger1 = teamside = 1
+anim = 3003
+id = 3003
+postype = left
+pos = -20,40
+ownpal = 1
+bindtime = -1
+ignorehitpause = 1
+ontop = 1
+facing = 1
+pausemovetime = -1
+scale = 0.5,0.5
+
+[State 3000, Explod]
+type = Explod
+trigger1 = time = 1
+trigger1 = !NumExplod(3003)
+trigger1 = teamside = 2
+anim = 3003
+id = 3003
+postype = Right
+pos = -100,40
+ownpal = 1
+bindtime = -1
+ignorehitpause = 1
+ontop = 1
+facing = 1
+pausemovetime = -1
+scale = 0.5,0.5
+
+[State 3000, Explod]
+type = Explod
+trigger1 = time = 15
+trigger1 = !NumExplod(3008)
+trigger1 = teamside = 1
+anim = 3008
+id = 3008
+postype = left
+pos = 25,60
+ownpal = 1
+bindtime = -1
+ignorehitpause = 1
+sprpriority = 4
+facing = 1
+pausemovetime = -1
+scale = 0.5,0.5
+
+[State 3000, Explod]
+type = ModifyExplod
+trigger1 = parent,var(58) != [7000,10999]
+ID = 3003
+removetime = 0
+
+[State 3000, Explod]
+type = ModifyExplod
+trigger1 = parent,var(58) != [7000,10999]
+ID = 3008
+removetime = 0
+
+[State 3000, Explod]
+type = Explod
+trigger1 = time = 15
+trigger1 = !NumExplod(3009)
+trigger1 = teamside = 1
+anim = 3009
+id = 3009
+postype = left
+pos = 39,67
+ownpal = 1
+bindtime = -1
+ignorehitpause = 1
+sprpriority = 5
+facing = 1
+pausemovetime = -1
+scale = 0.5,0.5
+
+[State 3000, Explod]
+type = Explod
+trigger1 = time = 15
+trigger1 = !NumExplod(3008)
+trigger1 = teamside = 2
+anim = 3008
+id = 3008
+postype = Right
+pos = -60,60
+ownpal = 1
+bindtime = -1
+ignorehitpause = 1
+sprpriority = 4
+facing = 1
+pausemovetime = -1
+scale = 0.5,0.5
+
+[State 3000, Explod]
+type = Explod
+trigger1 = time = 15
+trigger1 = !NumExplod(3009)
+trigger1 = teamside = 2
+anim = 3009
+id = 3009
+postype = Right
+pos = -48,68
+ownpal = 1
+bindtime = -1
+ignorehitpause = 1
+sprpriority = 5
+facing = 1
+pausemovetime = -1
+scale = 0.5,0.5
+
+[State 3000, Explod]
+type = ModifyExplod
+trigger1 = parent,var(58) != [7000,10999]
+ID = 3009
+removetime = 0
+
+[State 3000]
+type = Varset
+trigger1 = 1
+fv = 1
+value = (root,var(58)-7000)*0.000125
+
+[State 3000, Explod]
+type = ModifyExplod
+trigger1 = 1
+ID = 3009
+scale = fvar(1), 1
+
+[State 3000, Explod]
+type = DestroySelf
+trigger1 = time > 10
+trigger1 = !NumExplod(3003)
+trigger1 = !NumExplod(3008)
+trigger1 = parent,var(58) != [7000,10999]
+
+;---------------------------------------------------------------------------
+[Statedef 3013]
+anim = 3000
+ownpal = 1
+
+[State 3000, Explod]
+type = Explod
+trigger1 = time = 0
+trigger1 = !NumExplod(3004)
+trigger1 = teamside = 1
+anim = 3004
+id = 3004
+postype = left
+pos = -20,40
+ownpal = 1
+bindtime = -1
+ignorehitpause = 1
+ontop = 1
+facing = 1
+pausemovetime = -1
+scale = 0.5,0.5
+
+[State 3000, Explod]
+type = Explod
+trigger1 = time = 1
+trigger1 = !NumExplod(3004)
+trigger1 = teamside = 2
+anim = 3004
+id = 3004
+postype = Right
+pos = -100,40
+ownpal = 1
+bindtime = -1
+ignorehitpause = 1
+ontop = 1
+facing = 1
+pausemovetime = -1
+scale = 0.5,0.5
+
+[State 3000, Explod]
+type = Explod
+trigger1 = time = 15
+trigger1 = !NumExplod(3008)
+trigger1 = teamside = 1
+anim = 3008
+id = 3008
+postype = left
+pos = 25,60
+ownpal = 1
+bindtime = -1
+ignorehitpause = 1
+sprpriority = 4
+facing = 1
+pausemovetime = -1
+scale = 0.5,0.5
+
+[State 3000, Explod]
+type = ModifyExplod
+trigger1 = parent,var(58) != [11000,15999]
+ID = 3004
+removetime = 0
+
+[State 3000, Explod]
+type = ModifyExplod
+trigger1 = parent,var(58) != [11000,15999]
+ID = 3008
+removetime = 0
+
+[State 3000, Explod]
+type = Explod
+trigger1 = time = 15
+trigger1 = !NumExplod(3009)
+trigger1 = teamside = 1
+anim = 3009
+id = 3009
+postype = left
+pos = 39,67
+ownpal = 1
+bindtime = -1
+ignorehitpause = 1
+sprpriority = 5
+facing = 1
+pausemovetime = -1
+scale = 0.5,0.5
+
+[State 3000, Explod]
+type = Explod
+trigger1 = time = 15
+trigger1 = !NumExplod(3008)
+trigger1 = teamside = 2
+anim = 3008
+id = 3008
+postype = Right
+pos = -60,60
+ownpal = 1
+bindtime = -1
+ignorehitpause = 1
+sprpriority = 4
+facing = 1
+pausemovetime = -1
+scale = 0.5,0.5
+
+[State 3000, Explod]
+type = Explod
+trigger1 = time = 15
+trigger1 = !NumExplod(3009)
+trigger1 = teamside = 2
+anim = 3009
+id = 3009
+postype = Right
+pos = -48,68
+ownpal = 1
+bindtime = -1
+ignorehitpause = 1
+sprpriority = 5
+facing = 1
+pausemovetime = -1
+scale = 0.5,0.5
+
+[State 3000, Explod]
+type = ModifyExplod
+trigger1 = parent,var(58) != [11000,15999]
+ID = 3009
+removetime = 0
+
+[State 3000]
+type = Varset
+trigger1 = 1
+fv = 1
+value = (root,var(58)-11000)*0.0001
+
+[State 3000, Explod]
+type = ModifyExplod
+trigger1 = 1
+ID = 3009
+scale = fvar(1), 1
+
+[State 3000, Explod]
+type = DestroySelf
+trigger1 = time > 10
+trigger1 = !NumExplod(3004)
+trigger1 = !NumExplod(3008)
+trigger1 = parent,var(58) != [11000,15999]
+
+;---------------------------------------------------------------------------
+[Statedef 3014]
+anim = 3000
+ownpal = 1
+
+[State 3000, Explod]
+type = Explod
+trigger1 = time = 0
+trigger1 = !NumExplod(3005)
+trigger1 = teamside = 1
+anim = 3005
+id = 3005
+postype = left
+pos = -20,40
+ownpal = 1
+bindtime = -1
+ignorehitpause = 1
+ontop = 1
+facing = 1
+pausemovetime = -1
+scale = 0.5,0.5
+
+[State 3000, Explod]
+type = Explod
+trigger1 = time = 1
+trigger1 = !NumExplod(3005)
+trigger1 = teamside = 2
+anim = 3005
+id = 3005
+postype = Right
+pos = -100,40
+ownpal = 1
+bindtime = -1
+ignorehitpause = 1
+ontop = 1
+facing = 1
+pausemovetime = -1
+scale = 0.5,0.5
+
+[State 3000, Explod]
+type = Explod
+trigger1 = time = 15
+trigger1 = !NumExplod(3008)
+trigger1 = teamside = 1
+anim = 3008
+id = 3008
+postype = left
+pos = 25,60
+ownpal = 1
+bindtime = -1
+ignorehitpause = 1
+sprpriority = 4
+facing = 1
+pausemovetime = -1
+scale = 0.5,0.5
+
+[State 3000, Explod]
+type = ModifyExplod
+trigger1 = parent,var(58) != [16000,21999]
+ID = 3005
+removetime = 0
+
+[State 3000, Explod]
+type = ModifyExplod
+trigger1 = parent,var(58) != [16000,21999]
+ID = 3008
+removetime = 0
+
+[State 3000, Explod]
+type = Explod
+trigger1 = time = 15
+trigger1 = !NumExplod(3009)
+trigger1 = teamside = 1
+anim = 3009
+id = 3009
+postype = left
+pos = 39,67
+ownpal = 1
+bindtime = -1
+ignorehitpause = 1
+sprpriority = 5
+facing = 1
+pausemovetime = -1
+scale = 0.5,0.5
+
+[State 3000, Explod]
+type = Explod
+trigger1 = time = 15
+trigger1 = !NumExplod(3008)
+trigger1 = teamside = 2
+anim = 3008
+id = 3008
+postype = Right
+pos = -60,60
+ownpal = 1
+bindtime = -1
+ignorehitpause = 1
+sprpriority = 4
+facing = 1
+pausemovetime = -1
+scale = 0.5,0.5
+
+[State 3000, Explod]
+type = Explod
+trigger1 = time = 15
+trigger1 = !NumExplod(3009)
+trigger1 = teamside = 2
+anim = 3009
+id = 3009
+postype = Right
+pos = -48,68
+ownpal = 1
+bindtime = -1
+ignorehitpause = 1
+sprpriority = 5
+facing = 1
+pausemovetime = -1
+scale = 0.5,0.5
+
+[State 3000, Explod]
+type = ModifyExplod
+trigger1 = parent,var(58) != [16000,21999]
+ID = 3009
+removetime = 0
+
+[State 3000]
+type = Varset
+trigger1 = 1
+fv = 1
+value = (root,var(58)-16000)*0.000083333
+
+[State 3000, Explod]
+type = ModifyExplod
+trigger1 = 1
+ID = 3009
+scale = fvar(1), 1
+
+[State 3000, Explod]
+type = DestroySelf
+trigger1 = time > 10
+trigger1 = !NumExplod(3005)
+trigger1 = !NumExplod(3008)
+trigger1 = parent,var(58) != [16000,21999]
+
+;---------------------------------------------------------------------------
+[Statedef 3015]
+anim = 3000
+ownpal = 1
+
+[State 3000, Explod]
+type = Explod
+trigger1 = time = 0
+trigger1 = !NumExplod(3006)
+trigger1 = teamside = 1
+anim = 3006
+id = 3006
+postype = left
+pos = -20,40
+ownpal = 1
+bindtime = -1
+ignorehitpause = 1
+ontop = 1
+facing = 1
+pausemovetime = -1
+scale = 0.5,0.5
+
+[State 3000, Explod]
+type = Explod
+trigger1 = time = 1
+trigger1 = !NumExplod(3006)
+trigger1 = teamside = 2
+anim = 3006
+id = 3006
+postype = Right
+pos = -100,40
+ownpal = 1
+bindtime = -1
+ignorehitpause = 1
+ontop = 1
+facing = 1
+pausemovetime = -1
+scale = 0.5,0.5
+
+[State 3000, Explod]
+type = Explod
+trigger1 = time = 15
+trigger1 = !NumExplod(3008)
+trigger1 = teamside = 1
+anim = 3008
+id = 3008
+postype = left
+pos = 25,60
+ownpal = 1
+bindtime = -1
+ignorehitpause = 1
+sprpriority = 4
+facing = 1
+pausemovetime = -1
+scale = 0.5,0.5
+
+[State 3000, Explod]
+type = ModifyExplod
+trigger1 = parent,var(58) != [22000,28999]
+ID = 3006
+removetime = 0
+
+[State 3000, Explod]
+type = ModifyExplod
+trigger1 = parent,var(58) != [22000,28999]
+ID = 3008
+removetime = 0
+
+[State 3000, Explod]
+type = Explod
+trigger1 = time = 15
+trigger1 = !NumExplod(3009)
+trigger1 = teamside = 1
+anim = 3009
+id = 3009
+postype = left
+pos = 39,67
+ownpal = 1
+bindtime = -1
+ignorehitpause = 1
+sprpriority = 5
+facing = 1
+pausemovetime = -1
+scale = 0.5,0.5
+
+[State 3000, Explod]
+type = Explod
+trigger1 = time = 15
+trigger1 = !NumExplod(3008)
+trigger1 = teamside = 2
+anim = 3008
+id = 3008
+postype = Right
+pos = -60,60
+ownpal = 1
+bindtime = -1
+ignorehitpause = 1
+sprpriority = 4
+facing = 1
+pausemovetime = -1
+scale = 0.5,0.5
+
+[State 3000, Explod]
+type = Explod
+trigger1 = time = 15
+trigger1 = !NumExplod(3009)
+trigger1 = teamside = 2
+anim = 3009
+id = 3009
+postype = Right
+pos = -48,68
+ownpal = 1
+bindtime = -1
+ignorehitpause = 1
+sprpriority = 5
+facing = 1
+pausemovetime = -1
+scale = 0.5,0.5
+
+[State 3000, Explod]
+type = ModifyExplod
+trigger1 = parent,var(58) != [22000,28999]
+ID = 3009
+removetime = 0
+
+[State 3000]
+type = Varset
+trigger1 = 1
+fv = 1
+value = (root,var(58)-22000)*0.0000714
+
+[State 3000, Explod]
+type = ModifyExplod
+trigger1 = 1
+ID = 3009
+scale = fvar(1), 1
+
+[State 3000, Explod]
+type = DestroySelf
+trigger1 = time > 10
+trigger1 = !NumExplod(3006)
+trigger1 = !NumExplod(3008)
+trigger1 = parent,var(58) != [22000,28999]
+
+;---------------------------------------------------------------------------
+[Statedef 3016]
+anim = 3000
+ownpal = 1
+
+[State 3000, Explod]
+type = Explod
+trigger1 = time = 0
+trigger1 = !NumExplod(3007)
+trigger1 = teamside = 1
+anim = 3007
+id = 3007
+postype = left
+pos = -20,40
+ownpal = 1
+bindtime = -1
+ignorehitpause = 1
+ontop = 1
+facing = 1
+pausemovetime = -1
+scale = 0.5,0.5
+
+[State 3000, Explod]
+type = Explod
+trigger1 = time = 1
+trigger1 = !NumExplod(3007)
+trigger1 = teamside = 2
+anim = 3007
+id = 3007
+postype = Right
+pos = -100,40
+ownpal = 1
+bindtime = -1
+ignorehitpause = 1
+ontop = 1
+facing = 1
+pausemovetime = -1
+scale = 0.5,0.5
+
+[State 3000, Explod]
+type = Explod
+trigger1 = time = 15
+trigger1 = !NumExplod(3008)
+trigger1 = teamside = 1
+anim = 3008
+id = 3008
+postype = left
+pos = 25,60
+ownpal = 1
+bindtime = -1
+ignorehitpause = 1
+sprpriority = 4
+facing = 1
+pausemovetime = -1
+scale = 0.5,0.5
+
+[State 3000, Explod]
+type = ModifyExplod
+trigger1 = parent,var(58) < 29000
+ID = 3007
+removetime = 0
+
+[State 3000, Explod]
+type = ModifyExplod
+trigger1 = parent,var(58) < 29000
+ID = 3008
+removetime = 0
+
+[State 3000, Explod]
+type = Explod
+trigger1 = time = 15
+trigger1 = !NumExplod(3009)
+trigger1 = teamside = 1
+anim = 3009
+id = 3009
+postype = left
+pos = 39,67
+ownpal = 1
+bindtime = -1
+ignorehitpause = 1
+sprpriority = 5
+facing = 1
+pausemovetime = -1
+scale = 0.5,0.5
+
+[State 3000, Explod]
+type = Explod
+trigger1 = time = 15
+trigger1 = !NumExplod(3008)
+trigger1 = teamside = 2
+anim = 3008
+id = 3008
+postype = Right
+pos = -60,60
+ownpal = 1
+bindtime = -1
+ignorehitpause = 1
+sprpriority = 4
+facing = 1
+pausemovetime = -1
+scale = 0.5,0.5
+
+[State 3000, Explod]
+type = Explod
+trigger1 = time = 15
+trigger1 = !NumExplod(3009)
+trigger1 = teamside = 2
+anim = 3009
+id = 3009
+postype = Right
+pos = -48,68
+ownpal = 1
+bindtime = -1
+ignorehitpause = 1
+sprpriority = 5
+facing = 1
+pausemovetime = -1
+scale = 0.5,0.5
+
+[State 3000, Explod]
+type = ModifyExplod
+trigger1 = parent,var(58) < 29000
+ID = 3009
+removetime = 0
+
+[State 3000]
+type = Varset
+trigger1 = 1
+fv = 1
+value = (root,var(58)-29000)*0.00005
+
+[State 3000]
+type = Varset
+trigger1 = fvar(1) >= 0.5
+fv = 1
+value = 0.5
+
+[State 3000, Explod]
+type = ModifyExplod
+trigger1 = 1
+ID = 3009
+scale = fvar(1), 1
+
+[State 3000, Explod]
+type = DestroySelf
+trigger1 = time > 10
+trigger1 = !NumExplod(3007)
+trigger1 = !NumExplod(3008)
+trigger1 = parent,var(58) < 70000
+
+;---------------------------------------------------------------------------
+;Guage Credits: Mikel8888
+ [Statedef 4000]
+anim = 3998
+
+[State 0, BindToParent]
+type = BindToParent
+trigger1 = 1
+pos = 0,0
+
+[State 0, Explod]
+type = Explod
+Triggerall = parent,var(5) =[0,50]
+Triggerall = parent,teamside = 1
+triggerall = numexplod(4000) < 3
+trigger1 = 1
+anim = 4000
+ID = 4000
+pos = 35,237
+postype = left
+facing = 1
+vfacing = 1
+bindtime = -1
+removetime = 10
+pausemovetime = -1
+scale = 1,1
+sprpriority = 7
+ontop = 0
+ownpal = 1
+ignorehitpause = 1
+
+[State 0, Explod]
+type = Explod
+Triggerall = parent,var(5) = [51,199]
+Triggerall = parent,teamside = 1
+triggerall = numexplod(4001) < 3
+trigger1 = 1
+anim = 4001
+ID = 4001
+pos = 35,237
+postype = left
+facing = 1
+vfacing = 1
+bindtime = -1
+removetime = 10
+pausemovetime = -1
+scale = 1,1
+sprpriority = 7
+ontop = 0
+ownpal = 1
+ignorehitpause = 1
+
+[State 0, Explod]
+type = Explod
+Triggerall = parent,var(5) = [200,299]
+Triggerall = parent,teamside = 1
+triggerall = numexplod(4002) < 3
+trigger1 = 1
+anim = 4002
+ID = 4002
+pos = 35,237
+postype = left
+facing = 1
+vfacing = 1
+bindtime = -1
+removetime = 10
+pausemovetime = -1
+scale = 1,1
+sprpriority = 7
+ontop = 0
+ownpal = 1
+ignorehitpause = 1
+
+[State 0, Explod]
+type = Explod
+Triggerall = parent,var(5) = [300,399]
+Triggerall = parent,teamside = 1
+triggerall = numexplod(4003) < 3
+trigger1 = 1
+anim = 4003
+ID = 4003
+pos = 35,237
+postype = left
+facing = 1
+vfacing = 1
+bindtime = -1
+removetime = 10
+pausemovetime = -1
+scale = 1,1
+sprpriority = 7
+ontop = 0
+ownpal = 1
+ignorehitpause = 1
+
+[State 0, Explod]
+type = Explod
+Triggerall = parent,var(5) = [400,499]
+Triggerall = parent,teamside = 1
+triggerall = numexplod(4004) < 3
+trigger1 = 1
+anim = 4004
+ID = 4004
+pos = 35,237
+postype = left
+facing = 1
+vfacing = 1
+bindtime = -1
+removetime = 10
+pausemovetime = -1
+scale = 1,1
+sprpriority = 7
+ontop = 0
+ownpal = 1
+ignorehitpause = 1
+
+[State 0, Explod]
+type = Explod
+Triggerall = parent,var(5) = [500,599]
+Triggerall = parent,teamside = 1
+triggerall = numexplod(4005) < 3
+trigger1 = 1
+anim = 4005
+ID = 4005
+pos = 35,237
+postype = left
+facing = 1
+vfacing = 1
+bindtime = -1
+removetime = 10
+pausemovetime = -1
+scale = 1,1
+sprpriority = 7
+ontop = 0
+ownpal = 1
+ignorehitpause = 1
+
+[State 0, Explod]
+type = Explod
+Triggerall = parent,var(5) = [600,699]
+Triggerall = parent,teamside = 1
+triggerall = numexplod(4006) < 3
+trigger1 = 1
+anim = 4006
+ID = 4006
+pos = 35,237
+postype = left
+facing = 1
+vfacing = 1
+bindtime = -1
+removetime = 10
+pausemovetime = -1
+scale = 1,1
+sprpriority = 7
+ontop = 0
+ownpal = 1
+ignorehitpause = 1
+
+[State 0, Explod]
+type = Explod
+Triggerall = parent,var(5) = [700,799]
+Triggerall = parent,teamside = 1
+triggerall = numexplod(4007) < 3
+trigger1 = 1
+anim = 4007
+ID = 4007
+pos = 35,237
+postype = left
+facing = 1
+vfacing = 1
+bindtime = -1
+removetime = 10
+pausemovetime = -1
+scale = 1,1
+sprpriority = 7
+ontop = 0
+ownpal = 1
+ignorehitpause = 1
+
+[State 0, Explod]
+type = Explod
+Triggerall = parent,var(5) = [800,899]
+Triggerall = parent,teamside = 1
+triggerall = numexplod(4008) < 3
+trigger1 = 1
+anim = 4008
+ID = 4008
+pos = 35,237
+postype = left
+facing = 1
+vfacing = 1
+bindtime = -1
+removetime = 10
+pausemovetime = -1
+scale = 1,1
+sprpriority = 7
+ontop = 1
+ownpal = 1
+ignorehitpause = 1
+
+[State 0, Explod]
+type = Explod
+Triggerall = parent,var(5) = [900,999]
+Triggerall = parent,teamside = 1
+triggerall = numexplod(4009) < 3
+trigger1 = 1
+anim = 4009
+ID = 4009
+pos = 35,237
+postype = left
+facing = 1
+vfacing = 1
+bindtime = -1
+removetime = 10
+pausemovetime = -1
+scale = 1,1
+sprpriority = 7
+ontop = 0
+ownpal = 1
+ignorehitpause = 1
+
+[State 0, Explod]
+type = Explod
+Triggerall = parent,var(5) = 1000
+Triggerall = parent,teamside = 1
+triggerall = numexplod(4010) < 3
+trigger1 = 1
+anim = 4010
+ID = 4010
+pos = 35,237
+postype = left
+facing = 1
+vfacing = 1
+bindtime = -1
+removetime = 10
+pausemovetime = -1
+scale = 1,1
+sprpriority = 7
+ontop = 0
+ownpal = 1
+ignorehitpause = 1
+
+[State 0, Explod]
+type = Explod
+Triggerall = parent,var(5) = [250,1000]
+Triggerall = parent,teamside = 1
+triggerall = numexplod(3999) < 3
+triggerall = numexplod(39999) = 0
+trigger1 = 1
+anim = 3999
+ID = 3999
+pos = 35,230
+postype = left
+facing = 1
+vfacing = 1
+bindtime = -1
+removetime = 17
+pausemovetime = -1
+scale = .7,.7
+sprpriority = 7
+ontop = 0
+ownpal = 1
+ignorehitpause = 1
+
+[State 0, Explod]
+type = Explod
+Triggerall = parent,var(5) = [0,250]
+Triggerall = parent,teamside = 1
+triggerall = numexplod(39999) < 3
+triggerall = numexplod(3999) = 0
+trigger1 = 1
+anim = 39999
+ID = 39999
+pos = 35,230
+postype = left
+facing = 1
+vfacing = 1
+bindtime = -1
+removetime = 10
+pausemovetime = -1
+scale = .7,.7
+sprpriority = 7
+ontop = 0
+ownpal = 1
+ignorehitpause = 1
+
+;-------------------------------------------------------------------------------
+; Guage Bar P2
+[State 0, Explod]
+type = Explod
+Triggerall = parent,var(5) = [0,50]
+Triggerall = parent,teamside = 2
+triggerall = numexplod(4000) < 3
+trigger1 = 1
+anim = 4000
+ID = 4000
+pos = 283,237
+postype = left
+facing = -1
+vfacing = 1
+bindtime = -1
+removetime = 10
+pausemovetime = -1
+scale = 1,1
+sprpriority = 7
+ontop = 0
+ownpal = 1
+ignorehitpause = 1
+
+[State 0, Explod]
+type = Explod
+Triggerall = parent,var(5) = [51,199]
+Triggerall = parent,teamside = 2
+triggerall = numexplod(4001) < 3
+trigger1 = 1
+anim = 4001
+ID = 4001
+pos = 283,237
+postype = left
+facing = -1
+vfacing = 1
+bindtime = -1
+removetime = 10
+pausemovetime = -1
+scale = 1,1
+sprpriority = 7
+ontop = 0
+ownpal = 1
+ignorehitpause = 1
+
+[State 0, Explod]
+type = Explod
+Triggerall = parent,var(5) = [200,299]
+Triggerall = parent,teamside = 2
+triggerall = numexplod(4002) < 3
+trigger1 = 1
+anim = 4002
+ID = 4002
+pos = 283,237
+postype = left
+facing = -1
+vfacing = 1
+bindtime = -1
+removetime = 10
+pausemovetime = -1
+scale = 1,1
+sprpriority = 7
+ontop = 0
+ownpal = 1
+ignorehitpause = 1
+
+[State 0, Explod]
+type = Explod
+Triggerall = parent,var(5) = [300,399]
+Triggerall = parent,teamside = 2
+triggerall = numexplod(4003) < 3
+trigger1 = 1
+anim = 4003
+ID = 4003
+pos = 283,237
+postype = left
+facing = -1
+vfacing = 1
+bindtime = -1
+removetime = 10
+pausemovetime = -1
+scale = 1,1
+sprpriority = 7
+ontop = 0
+ownpal = 1
+ignorehitpause = 1
+
+[State 0, Explod]
+type = Explod
+Triggerall = parent,var(5) = [400,499]
+Triggerall = parent,teamside = 2
+triggerall = numexplod(4004) < 3
+trigger1 = 1
+anim = 4004
+ID = 4004
+pos = 283,237;228 Para postura Mugen de Alexey
+postype = left
+facing = -1
+vfacing = 1
+bindtime = -1
+removetime = 10
+pausemovetime = -1
+scale = 1,1
+sprpriority = 7
+ontop = 0
+ownpal = 1
+ignorehitpause = 1
+
+[State 0, Explod]
+type = Explod
+Triggerall = parent,var(5) = [500,599]
+Triggerall = parent,teamside = 2
+triggerall = numexplod(4005) < 3
+trigger1 = 1
+anim = 4005
+ID = 4005
+pos = 283,237
+postype = left
+facing = -1
+vfacing = 1
+bindtime = -1
+removetime = 10
+pausemovetime = -1
+scale = 1,1
+sprpriority = 7
+ontop = 0
+ownpal = 1
+ignorehitpause = 1
+
+[State 0, Explod]
+type = Explod
+Triggerall = parent,var(5) = [600,699]
+Triggerall = parent,teamside = 2
+triggerall = numexplod(4006) < 3
+trigger1 = 1
+anim = 4006
+ID = 4006
+pos = 283,237
+postype = left
+facing = -1
+vfacing = 1
+bindtime = -1
+removetime = 10
+pausemovetime = -1
+scale = 1,1
+sprpriority = 7
+ontop = 0
+ownpal = 1
+ignorehitpause = 1
+
+[State 0, Explod]
+type = Explod
+Triggerall = parent,var(5) = [700,799]
+Triggerall = parent,teamside = 2
+triggerall = numexplod(4007) < 3
+trigger1 = 1
+anim = 4007
+ID = 4007
+pos = 283,237
+postype = left
+facing = -1
+vfacing = 1
+bindtime = -1
+removetime = 10
+pausemovetime = -1
+scale = 1,1
+sprpriority = 7
+ontop = 0
+ownpal = 1
+ignorehitpause = 1
+
+[State 0, Explod]
+type = Explod
+Triggerall = parent,var(5) = [800,899]
+Triggerall = parent,teamside = 2
+triggerall = numexplod(4008) < 3
+trigger1 = 1
+anim = 4008
+ID = 4008
+pos = 283,237
+postype = left
+facing = -1
+vfacing = 1
+bindtime = -1
+removetime = 10
+pausemovetime = -1
+scale = 1,1
+sprpriority = 7
+ontop = 0
+ownpal = 1
+ignorehitpause = 1
+
+[State 0, Explod]
+type = Explod
+Triggerall = parent,var(5) = [900,999]
+Triggerall = parent,teamside = 2
+triggerall = numexplod(4009) < 3
+trigger1 = 1
+anim = 4009
+ID = 4009
+pos = 283,237
+postype = left
+facing = -1
+vfacing = 1
+bindtime = -1
+removetime = 10
+pausemovetime = -1
+scale = 1,1
+sprpriority = 7
+ontop = 0
+ownpal = 1
+ignorehitpause = 1
+
+[State 0, Explod]
+type = Explod
+Triggerall = parent,var(5) = 1000
+Triggerall = parent,teamside = 2
+triggerall = numexplod(4010) < 3
+trigger1 = 1
+anim = 4010
+ID = 4010
+pos = 283,237
+postype = left
+facing = -1
+vfacing = 1
+bindtime = -1
+removetime = 10
+pausemovetime = -1
+scale = 1,1
+sprpriority = 7
+ontop = 0
+ownpal = 1
+ignorehitpause = 1
+
+[State 0, Explod]
+type = Explod
+Triggerall = parent,var(5) = [250,1000]
+Triggerall = parent,teamside = 2
+triggerall = numexplod(3999) < 3
+triggerall = numexplod(39999) = 0
+trigger1 = 1
+anim = 3999
+ID = 3999
+pos = 283,230
+postype = left
+facing = -1
+vfacing = 1
+bindtime = -1
+removetime = 17
+pausemovetime = -1
+scale = .7,.7
+sprpriority = 7
+ontop = 0
+ownpal = 1
+ignorehitpause = 1
+
+[State 0, Explod]
+type = Explod
+Triggerall = parent,var(5) = [0,250]
+Triggerall = parent,teamside = 2
+triggerall = numexplod(39999) < 3
+triggerall = numexplod(3999) = 0
+trigger1 = 1
+anim = 39999
+ID = 39999
+pos = 283,230
+postype = left
+facing = -1
+vfacing = 1
+bindtime = -1
+removetime = 10
+pausemovetime = -1
+scale = .7,.7
+sprpriority = 7
+ontop = 0
+ownpal = 1
+ignorehitpause = 1
+
+[State 2, RemoveExplod]
+type = RemoveExplod
+Trigger1 = parent,var(5) <= 250
+id = 3999
+
+[State 3, RemoveExplod]
+type = RemoveExplod
+Trigger1 = parent,var(5) = [250,1000]
+id = 39999
+
+[State 200, End]
+type = Destroyself
+trigger1 = time = -1
+
+[State 200, End]
+type = Destroyself
+trigger1 = parent,var(5) = 1000
+
+;---------------------------------------------------------------------------
+
+[Statedef 4500]
+anim = 441
+ownpal = 1
+
+[State 0, Explod]
+type = Explod
+Triggerall = parent,var(36) =[0,50]
+Triggerall = parent,teamside = 1
+triggerall = numexplod(9000) < 3
+trigger1 = 1
+anim = 4501
+ID = 9000
+pos = 0,130
+postype = left
+facing = 1
+bindtime = -1
+removetime = 10
+pausemovetime = -1
+scale = 1,.0500
+sprpriority = 5
+ownpal = 1
+
+[State 0, Explod]
+type = Explod
+Triggerall = parent,var(36) =[51,100]
+Triggerall = parent,teamside = 1
+triggerall = numexplod(9001) < 3
+trigger1 = 1
+anim = 4501
+ID = 9001
+pos = 0,130
+postype = left
+facing = 1
+bindtime = -1
+removetime = 10
+pausemovetime = -1
+scale = 1,.1000
+sprpriority = 5
+ownpal = 1
+
+[State 0, Explod]
+type = Explod
+Triggerall = parent,var(36) =[101,150]
+Triggerall = parent,teamside = 1
+triggerall = numexplod(9002) < 3
+trigger1 = 1
+anim = 4501
+ID = 9002
+pos = 0,130
+postype = left
+facing = 1
+bindtime = -1
+removetime = 10
+pausemovetime = -1
+scale = 1,.1500
+sprpriority = 5
+ownpal = 1
+
+[State 0, Explod]
+type = Explod
+Triggerall = parent,var(36) =[151,200]
+Triggerall = parent,teamside = 1
+triggerall = numexplod(9003) < 3
+trigger1 = 1
+anim = 4501
+ID = 9003
+pos = 0,130
+postype = left
+facing = 1
+bindtime = -1
+removetime = 10
+pausemovetime = -1
+scale = 1,.2000
+sprpriority = 5
+ownpal = 1
+
+[State 0, Explod]
+type = Explod
+Triggerall = parent,var(36) =[201,250]
+Triggerall = parent,teamside = 1
+triggerall = numexplod(9004) < 3
+trigger1 = 1
+anim = 4501
+ID = 9004
+pos = 0,130
+postype = left
+facing = 1
+bindtime = -1
+removetime = 10
+pausemovetime = -1
+scale = 1,.2500
+sprpriority = 5
+ownpal = 1
+
+[State 0, Explod]
+type = Explod
+Triggerall = parent,var(36) =[251,300]
+Triggerall = parent,teamside = 1
+triggerall = numexplod(9005) < 3
+trigger1 = 1
+anim = 4501
+ID = 9005
+pos = 0,130
+postype = left
+facing = 1
+bindtime = -1
+removetime = 10
+pausemovetime = -1
+scale = 1,.3000
+sprpriority = 5
+ownpal = 1
+
+[State 0, Explod]
+type = Explod
+Triggerall = parent,var(36) =[301,350]
+Triggerall = parent,teamside = 1
+triggerall = numexplod(9006) < 3
+trigger1 = 1
+anim = 4501
+ID = 9006
+pos = 0,130
+postype = left
+facing = 1
+bindtime = -1
+removetime = 10
+pausemovetime = -1
+scale = 1,.3500
+sprpriority = 5
+ownpal = 1
+
+[State 0, Explod]
+type = Explod
+Triggerall = parent,var(36) =[351,400]
+Triggerall = parent,teamside = 1
+triggerall = numexplod(9007) < 3
+trigger1 = 1
+anim = 4501
+ID = 9007
+pos = 0,130
+postype = left
+facing = 1
+bindtime = -1
+removetime = 10
+pausemovetime = -1
+scale = 1,.4000
+sprpriority = 5
+ownpal = 1
+
+[State 0, Explod]
+type = Explod
+Triggerall = parent,var(36) =[401,450]
+Triggerall = parent,teamside = 1
+triggerall = numexplod(9008) < 3
+trigger1 = 1
+anim = 4501
+ID = 9008
+pos = 0,130
+postype = left
+facing = 1
+bindtime = -1
+removetime = 10
+pausemovetime = -1
+scale = 1,.4500
+sprpriority = 5
+ownpal = 1
+
+[State 0, Explod]
+type = Explod
+Triggerall = parent,var(36) =[451,500]
+Triggerall = parent,teamside = 1
+triggerall = numexplod(9009) < 3
+trigger1 = 1
+anim = 4501
+ID = 9009
+pos = 0,130
+postype = left
+facing = 1
+bindtime = -1
+removetime = 10
+pausemovetime = -1
+scale = 1,.5000
+sprpriority = 5
+ownpal = 1
+
+[State 0, Explod]
+type = Explod
+Triggerall = parent,var(36) =[501,550]
+Triggerall = parent,teamside = 1
+triggerall = numexplod(9010) < 3
+trigger1 = 1
+anim = 4501
+ID = 9010
+pos = 0,130
+postype = left
+facing = 1
+bindtime = -1
+removetime = 10
+pausemovetime = -1
+scale = 1,.5500
+sprpriority = 5
+ownpal = 1
+
+[State 0, Explod]
+type = Explod
+Triggerall = parent,var(36) =[551,600]
+Triggerall = parent,teamside = 1
+triggerall = numexplod(9011) < 3
+trigger1 = 1
+anim = 4501
+ID = 9011
+pos = 0,130
+postype = left
+facing = 1
+bindtime = -1
+removetime = 10
+pausemovetime = -1
+scale = 1,.6000
+sprpriority = 5
+ownpal = 1
+
+[State 0, Explod]
+type = Explod
+Triggerall = parent,var(36) =[601,650]
+Triggerall = parent,teamside = 1
+triggerall = numexplod(9012) < 3
+trigger1 = 1
+anim = 4501
+ID = 9012
+pos = 0,130
+postype = left
+facing = 1
+bindtime = -1
+removetime = 10
+pausemovetime = -1
+scale = 1,.6500
+sprpriority = 5
+ownpal = 1
+
+[State 0, Explod]
+type = Explod
+Triggerall = parent,var(36) =[651,700]
+Triggerall = parent,teamside = 1
+triggerall = numexplod(9013) < 3
+trigger1 = 1
+anim = 4501
+ID = 9013
+pos = 0,130
+postype = left
+facing = 1
+bindtime = -1
+removetime = 10
+pausemovetime = -1
+scale = 1,.7000
+sprpriority = 5
+ownpal = 1
+
+[State 0, Explod]
+type = Explod
+Triggerall = parent,var(36) =[701,750]
+Triggerall = parent,teamside = 1
+triggerall = numexplod(9014) < 3
+trigger1 = 1
+anim = 4501
+ID = 9014
+pos = 0,130
+postype = left
+facing = 1
+bindtime = -1
+removetime = 10
+pausemovetime = -1
+scale = 1,.7500
+sprpriority = 5
+ownpal = 1
+
+[State 0, Explod]
+type = Explod
+Triggerall = parent,var(36) =[751,800]
+Triggerall = parent,teamside = 1
+triggerall = numexplod(9015) < 3
+trigger1 = 1
+anim = 4501
+ID = 9015
+pos = 0,130
+postype = left
+facing = 1
+bindtime = -1
+removetime = 10
+pausemovetime = -1
+scale = 1,.8000
+sprpriority = 5
+ownpal = 1
+
+[State 0, Explod]
+type = Explod
+Triggerall = parent,var(36) =[801,850]
+Triggerall = parent,teamside = 1
+triggerall = numexplod(9016) < 3
+trigger1 = 1
+anim = 4501
+ID = 9016
+pos = 0,130
+postype = left
+facing = 1
+bindtime = -1
+removetime = 10
+pausemovetime = -1
+scale = 1,.8300
+sprpriority = 5
+ownpal = 1
+
+[State 0, Explod]
+type = Explod
+Triggerall = parent,var(36) =[851,900]
+Triggerall = parent,teamside = 1
+triggerall = numexplod(9017) < 3
+trigger1 = 1
+anim = 4501
+ID = 9017
+pos = 0,130
+postype = left
+facing = 1
+bindtime = -1
+removetime = 10
+pausemovetime = -1
+scale = 1,.8500
+sprpriority = 5
+ownpal = 1
+
+[State 0, Explod]
+type = Explod
+Triggerall = parent,var(36) =[901,950]
+Triggerall = parent,teamside = 1
+triggerall = numexplod(9018) < 3
+trigger1 = 1
+anim = 4501
+ID = 9018
+pos = 0,130
+postype = left
+facing = 1
+bindtime = -1
+removetime = 10
+pausemovetime = -1
+scale = 1,.9000
+sprpriority = 5
+ownpal = 1
+
+[State 0, Explod]
+type = Explod
+Triggerall = parent,var(36) =[951,980]
+Triggerall = parent,teamside = 1
+triggerall = numexplod(9019) < 3
+trigger1 = 1
+anim = 4501
+ID = 9019
+pos = 0,130
+postype = left
+facing = 1
+bindtime = -1
+removetime = 7
+pausemovetime = -1
+scale = 1,.9400
+sprpriority = 5
+ownpal = 1
+
+[State 0, Explod]
+type = Explod
+Triggerall = parent,var(36) =[981,999]
+Triggerall = parent,teamside = 1
+triggerall = numexplod(9020) < 3
+trigger1 = 1
+anim = 4501
+ID = 9020
+pos = 0,130
+postype = left
+facing = 1
+bindtime = -1
+removetime = 7
+pausemovetime = -1
+scale = 1,.9800
+sprpriority = 5
+ownpal = 1
+
+[State 0, Explod]
+type = Explod
+Triggerall = parent,var(36) = 1000
+Triggerall = parent,teamside = 1
+triggerall = numexplod(9021) < 3
+trigger1 = 1
+anim = 4501
+ID = 9021
+pos = 0,130
+postype = left
+facing = 1
+bindtime = -1
+removetime = 100
+pausemovetime = -1
+scale = 1,1
+sprpriority = 5
+ownpal = 1
+
+[State 0, Explod]
+type = Explod
+Triggerall = parent,stateno != [191,195]
+Triggerall = parent,var(36) =[301,1000]
+Triggerall = parent,teamside = 1
+triggerall = numexplod(4500) < 3
+trigger1 = 1
+anim = 4500
+ID = 4500
+pos = 0,130
+postype = left
+facing = 1
+bindtime = -1
+removetime = 100
+pausemovetime = -1
+scale = 1,1
+sprpriority = 7
+ownpal = 1
+
+[State 0, Explod]
+type = Explod
+Triggerall = parent,stateno != [191,195]
+Triggerall = parent,var(36) =[0,300]
+Triggerall = parent,teamside = 1
+triggerall = numexplod(4500) < 3
+trigger1 = 1
+anim = 4503
+ID = 4510
+pos = 0,130
+postype = left
+facing = 1
+bindtime = -1
+removetime = 100
+pausemovetime = -1
+scale = 1,1
+sprpriority = 7
+ownpal = 1
+
+
+;-------------------------
+
+
+[State 0, Explod]
+type = Explod
+Triggerall = parent,var(36) =[0,50]
+Triggerall = parent,teamside = 2
+triggerall = numexplod(9000) < 3
+trigger1 = 1
+anim = 4501
+ID = 9000
+pos = 319,130
+postype = left
+facing = -1
+bindtime = -1
+removetime = 10
+pausemovetime = -1
+scale = 1,.0500
+sprpriority = 5
+ownpal = 1
+
+[State 0, Explod]
+type = Explod
+Triggerall = parent,var(36) =[51,100]
+Triggerall = parent,teamside = 2
+triggerall = numexplod(9001) < 3
+trigger1 = 1
+anim = 4501
+ID = 9001
+pos = 319,130
+postype = left
+facing = -1
+bindtime = -1
+removetime = 10
+pausemovetime = -1
+scale = 1,.1000
+sprpriority = 5
+ownpal = 1
+
+[State 0, Explod]
+type = Explod
+Triggerall = parent,var(36) =[101,150]
+Triggerall = parent,teamside = 2
+triggerall = numexplod(9002) < 3
+trigger1 = 1
+anim = 4501
+ID = 9002
+pos = 319,130
+postype = left
+facing = -1
+bindtime = -1
+removetime = 10
+pausemovetime = -1
+scale = 1,.1500
+sprpriority = 5
+ownpal = 1
+
+[State 0, Explod]
+type = Explod
+Triggerall = parent,var(36) =[151,200]
+Triggerall = parent,teamside = 2
+triggerall = numexplod(9003) < 3
+trigger1 = 1
+anim = 4501
+ID = 9003
+pos = 319,130
+postype = left
+facing = -1
+bindtime = -1
+removetime = 10
+pausemovetime = -1
+scale = 1,.2000
+sprpriority = 5
+ownpal = 1
+
+[State 0, Explod]
+type = Explod
+Triggerall = parent,var(36) =[201,250]
+Triggerall = parent,teamside = 2
+triggerall = numexplod(9004) < 3
+trigger1 = 1
+anim = 4501
+ID = 9004
+pos = 319,130
+postype = left
+facing = -1
+bindtime = -1
+removetime = 10
+pausemovetime = -1
+scale = 1,.2500
+sprpriority = 5
+ownpal = 1
+
+[State 0, Explod]
+type = Explod
+Triggerall = parent,var(36) =[251,300]
+Triggerall = parent,teamside = 2
+triggerall = numexplod(9005) < 3
+trigger1 = 1
+anim = 4501
+ID = 9005
+pos = 319,130
+postype = left
+facing = -1
+bindtime = -1
+removetime = 10
+pausemovetime = -1
+scale = 1,.3000
+sprpriority = 5
+ownpal = 1
+
+[State 0, Explod]
+type = Explod
+Triggerall = parent,var(36) =[301,350]
+Triggerall = parent,teamside = 2
+triggerall = numexplod(9006) < 3
+trigger1 = 1
+anim = 4501
+ID = 9006
+pos = 319,130
+postype = left
+facing = -1
+bindtime = -1
+removetime = 10
+pausemovetime = -1
+scale = 1,.3500
+sprpriority = 5
+ownpal = 1
+
+[State 0, Explod]
+type = Explod
+Triggerall = parent,var(36) =[351,400]
+Triggerall = parent,teamside = 2
+triggerall = numexplod(9007) < 3
+trigger1 = 1
+anim = 4501
+ID = 9007
+pos = 319,130
+postype = left
+facing = -1
+bindtime = -1
+removetime = 10
+pausemovetime = -1
+scale = 1,.4000
+sprpriority = 5
+ownpal = 1
+
+[State 0, Explod]
+type = Explod
+Triggerall = parent,var(36) =[401,450]
+Triggerall = parent,teamside = 2
+triggerall = numexplod(9008) < 3
+trigger1 = 1
+anim = 4501
+ID = 9008
+pos = 319,130
+postype = left
+facing = -1
+bindtime = -1
+removetime = 10
+pausemovetime = -1
+scale = 1,.4500
+sprpriority = 5
+ownpal = 1
+
+[State 0, Explod]
+type = Explod
+Triggerall = parent,var(36) =[451,500]
+Triggerall = parent,teamside = 2
+triggerall = numexplod(9009) < 3
+trigger1 = 1
+anim = 4501
+ID = 9009
+pos = 319,130
+postype = left
+facing = -1
+bindtime = -1
+removetime = 10
+pausemovetime = -1
+scale = 1,.5000
+sprpriority = 5
+ownpal = 1
+
+[State 0, Explod]
+type = Explod
+Triggerall = parent,var(36) =[501,550]
+Triggerall = parent,teamside = 2
+triggerall = numexplod(9010) < 3
+trigger1 = 1
+anim = 4501
+ID = 9010
+pos = 319,130
+postype = left
+facing = -1
+bindtime = -1
+removetime = 10
+pausemovetime = -1
+scale = 1,.5500
+sprpriority = 5
+ownpal = 1
+
+[State 0, Explod]
+type = Explod
+Triggerall = parent,var(36) =[551,600]
+Triggerall = parent,teamside = 2
+triggerall = numexplod(9011) < 3
+trigger1 = 1
+anim = 4501
+ID = 9011
+pos = 319,130
+postype = left
+facing = -1
+bindtime = -1
+removetime = 10
+pausemovetime = -1
+scale = 1,.6000
+sprpriority = 5
+ownpal = 1
+
+[State 0, Explod]
+type = Explod
+Triggerall = parent,var(36) =[601,650]
+Triggerall = parent,teamside = 2
+triggerall = numexplod(9012) < 3
+trigger1 = 1
+anim = 4501
+ID = 9012
+pos = 319,130
+postype = left
+facing = -1
+bindtime = -1
+removetime = 10
+pausemovetime = -1
+scale = 1,.6500
+sprpriority = 5
+ownpal = 1
+
+[State 0, Explod]
+type = Explod
+Triggerall = parent,var(36) =[651,700]
+Triggerall = parent,teamside = 2
+triggerall = numexplod(9013) < 3
+trigger1 = 1
+anim = 4501
+ID = 9013
+pos = 319,130
+postype = left
+facing = -1
+bindtime = -1
+removetime = 10
+pausemovetime = -1
+scale = 1,.7000
+sprpriority = 5
+ownpal = 1
+
+[State 0, Explod]
+type = Explod
+Triggerall = parent,var(36) =[701,750]
+Triggerall = parent,teamside = 2
+triggerall = numexplod(9014) < 3
+trigger1 = 1
+anim = 4501
+ID = 9014
+pos = 319,130
+postype = left
+facing = -1
+bindtime = -1
+removetime = 10
+pausemovetime = -1
+scale = 1,.7500
+sprpriority = 5
+ownpal = 1
+
+[State 0, Explod]
+type = Explod
+Triggerall = parent,var(36) =[751,800]
+Triggerall = parent,teamside = 2
+triggerall = numexplod(9015) < 3
+trigger1 = 1
+anim = 4501
+ID = 9015
+pos = 319,130
+postype = left
+facing = -1
+bindtime = -1
+removetime = 10
+pausemovetime = -1
+scale = 1,.8000
+sprpriority = 5
+ownpal = 1
+
+[State 0, Explod]
+type = Explod
+Triggerall = parent,var(36) =[801,850]
+Triggerall = parent,teamside = 2
+triggerall = numexplod(9016) < 3
+trigger1 = 1
+anim = 4501
+ID = 9016
+pos = 319,130
+postype = left
+facing = -1
+bindtime = -1
+removetime = 10
+pausemovetime = -1
+scale = 1,.8300
+sprpriority = 5
+ownpal = 1
+
+[State 0, Explod]
+type = Explod
+Triggerall = parent,var(36) =[851,900]
+Triggerall = parent,teamside = 2
+triggerall = numexplod(9017) < 3
+trigger1 = 1
+anim = 4501
+ID = 9017
+pos = 319,130
+postype = left
+facing = -1
+bindtime = -1
+removetime = 10
+pausemovetime = -1
+scale = 1,.8500
+sprpriority = 5
+ownpal = 1
+
+[State 0, Explod]
+type = Explod
+Triggerall = parent,var(36) =[901,950]
+Triggerall = parent,teamside = 2
+triggerall = numexplod(9018) < 3
+trigger1 = 1
+anim = 4501
+ID = 9018
+pos = 319,130
+postype = left
+facing = -1
+bindtime = -1
+removetime = 10
+pausemovetime = -1
+scale = 1,.9000
+sprpriority = 5
+ownpal = 1
+
+[State 0, Explod]
+type = Explod
+Triggerall = parent,var(36) =[951,980]
+Triggerall = parent,teamside = 2
+triggerall = numexplod(9019) < 3
+trigger1 = 1
+anim = 4501
+ID = 9019
+pos = 319,130
+postype = left
+facing = -1
+bindtime = -1
+removetime = 7
+pausemovetime = -1
+scale = 1,.9400
+sprpriority = 5
+ownpal = 1
+
+[State 0, Explod]
+type = Explod
+Triggerall = parent,var(36) =[981,999]
+Triggerall = parent,teamside = 2
+triggerall = numexplod(9020) < 3
+trigger1 = 1
+anim = 4501
+ID = 9020
+pos = 319,130
+postype = left
+facing = -1
+bindtime = -1
+removetime = 7
+pausemovetime = -1
+scale = 1,.9800
+sprpriority = 5
+ownpal = 1
+
+[State 0, Explod]
+type = Explod
+Triggerall = parent,var(36) = 1000
+Triggerall = parent,teamside = 2
+triggerall = numexplod(9021) < 3
+trigger1 = 1
+anim = 4501
+ID = 9021
+pos = 319,130
+postype = left
+facing = -1
+bindtime = -1
+removetime = 10
+pausemovetime = -1
+scale = 1,1
+sprpriority = 5
+ownpal = 1
+
+[State 0, Explod]
+type = Explod
+Triggerall = parent,stateno != [191,195]
+Triggerall = parent,var(36) = [301,1000]
+Triggerall = parent,teamside = 2
+triggerall = numexplod(4500) < 3
+trigger1 = 1
+anim = 4500
+ID = 4500
+pos = 319,130
+postype = left
+facing = -1
+bindtime = -1
+removetime = 10
+pausemovetime = -1
+scale = 1,1
+sprpriority = 7
+ownpal = 1
+
+[State 0, Explod]
+type = Explod
+Triggerall = parent,stateno != [191,195]
+Triggerall = parent,var(36) = [0,300]
+Triggerall = parent,teamside = 2
+triggerall = numexplod(4500) < 3
+trigger1 = 1
+anim = 4503
+ID = 4510
+pos = 319,130
+postype = left
+facing = -1
+bindtime = -1
+removetime = 10
+pausemovetime = -1
+scale = 1,1
+sprpriority = 7
+ownpal = 1
+;-----
+[State 0, RemoveExplod]
+type = RemoveExplod
+trigger1 = parent,var(36) = [0,300]
+id = 4500
+
+[State 0, RemoveExplod]
+type = RemoveExplod
+trigger1 = parent,var(36) = [300,1000]
+id = 4510
+
+[State 4501, end]
+type = ChangeState
+trigger1 = parent,var(36) = 1000
+value = 4501
+ctrl = 1
+
+[StateDef 4501]
+anim = 441
+
+[State 0, Explod]
+type = Explod
+Triggerall = parent,stateno != [191,195]
+Triggerall = parent,teamside = 1
+trigger1 = time = 0
+anim = 4502
+ID = 4502
+pos = 0,130
+postype = left
+facing = 1
+bindtime = -1
+removetime = -2
+pausemovetime = -1
+supermovetime = -1
+scale = 1,1
+sprpriority = 7
+ownpal = 1
+
+[State 0, Explod]
+type = Explod
+Triggerall = parent,stateno != [191,195]
+Triggerall = parent,teamside = 2
+trigger1 = time = 0
+anim = 4502
+ID = 4502
+pos = 319,130
+postype = left
+facing = -1
+bindtime = -1
+removetime = -2
+pausemovetime = -1
+supermovetime = -1
+scale = 1,1
+sprpriority = 7
+ownpal = 1
+
+[State 0, RemoveExplod]
+type = RemoveExplod
+trigger1 = 1
+id = 4500
+
+[State 0, RemoveExplod]
+type = RemoveExplod
+trigger1 = 1
+id = 4510
+
+[State 0, RemoveExplod]
+type = RemoveExplod
+trigger1 = 1
+id = 9000
+
+[State 0, RemoveExplod]
+type = RemoveExplod
+trigger1 = 1
+id = 9001
+
+[State 0, RemoveExplod]
+type = RemoveExplod
+trigger1 = 1
+id = 9002
+
+[State 0, RemoveExplod]
+type = RemoveExplod
+trigger1 = 1
+id = 9003
+
+[State 0, RemoveExplod]
+type = RemoveExplod
+trigger1 = 1
+id = 9004
+
+[State 0, RemoveExplod]
+type = RemoveExplod
+trigger1 = 1
+id = 9005
+
+[State 0, RemoveExplod]
+type = RemoveExplod
+trigger1 = 1
+id = 9006
+
+[State 0, RemoveExplod]
+type = RemoveExplod
+trigger1 = 1
+id = 9007
+
+[State 0, RemoveExplod]
+type = RemoveExplod
+trigger1 = 1
+id = 9008
+
+[State 0, RemoveExplod]
+type = RemoveExplod
+trigger1 = 1
+id = 9009
+
+[State 0, RemoveExplod]
+type = RemoveExplod
+trigger1 = 1
+id = 9010
+
+[State 0, RemoveExplod]
+type = RemoveExplod
+trigger1 = 1
+id = 9011
+
+[State 0, RemoveExplod]
+type = RemoveExplod
+trigger1 = 1
+id = 9012
+
+[State 0, RemoveExplod]
+type = RemoveExplod
+trigger1 = 1
+id = 9013
+
+[State 0, RemoveExplod]
+type = RemoveExplod
+trigger1 = 1
+id = 9014
+
+[State 0, RemoveExplod]
+type = RemoveExplod
+trigger1 = 1
+id = 9015
+
+[State 0, RemoveExplod]
+type = RemoveExplod
+trigger1 = 1
+id = 9016
+
+[State 0, RemoveExplod]
+type = RemoveExplod
+trigger1 = 1
+id = 9017
+
+[State 0, RemoveExplod]
+type = RemoveExplod
+trigger1 = 1
+id = 9018
+
+[State 0, RemoveExplod]
+type = RemoveExplod
+trigger1 = 1
+id = 9019
+
+[State 0, RemoveExplod]
+type = RemoveExplod
+trigger1 = 1
+id = 9020
+
+[State 0, RemoveExplod]
+type = RemoveExplod
+trigger1 = 1
+id = 9021
+
+[State 200, End]
+type = Destroyself
+trigger1 = time = 5
+

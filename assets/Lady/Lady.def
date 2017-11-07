@@ -1,0 +1,22 @@
+[Info]
+name = "Lady"
+displayname = "Lady"
+versiondate = 22/08/2017
+mugenversion = 1.0
+author = "Betalille"
+pal.defaults = 1
+
+[Files]
+sprite = Lady.sff
+anim = Lady.air
+sound = Lady.snd
+cmd = Lady.cmd
+cns = Lady.cns
+stcommon = common1.cns
+st = Lady.cns
+st1 = Lady - Specials&Super.cns
+pal1 = Colors\Lady.act
+
+[Arcade]
+intro.storyboard = 
+ending.storyboard = 

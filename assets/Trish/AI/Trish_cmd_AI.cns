@@ -1,0 +1,1274 @@
+; サンプルキャラクター『カンフーマン』のコマンドファイルです。
+; コマンドに関する設定は４部構成になっています。
+;==============================================================================
+; Win版専用パート
+;==============================================================================
+;------------------------------------------------------------------------------
+; ここはWin版から（正確にはLinux版から）追加された要素の二つ。
+; コマンド関連の初期設定を任意に指定出来るようになった(`・ω・´)
+;
+;『ボタンリマップ』はボタン配置変更用の項目。
+; 定義パートでいちいち変更しなくても良いようになっちゃった。
+; 面倒臭い人用かな！（ﾏﾃｺﾗ
+;
+;『デフォルト設定』では各[Command]で省略した場合の
+; 入力受付時間と入力記憶時間を予め決めておく項目。
+;
+;
+; この２項目は省略可能。
+;------------------------------------------------------------------------------
+;-| ボタンリマップ（ボタンコンフィグ）|---------------------------------------- 第１部
+
+[Remap]
+x = x      ;Ｘボタンの入力判定を実際に押すボタンに割り当てる。
+y = y      ;Ｙボタン　　　　　　　　　〃
+z = b      ;Ｚボタン　　　　　　　　　〃
+a = z      ;Ａボタン　　　　　　　　　〃
+b = a      ;Ｂボタン　　　　　　　　　〃
+c = c      ;Ｃボタン　　　　　　　　　〃
+s = s      ;スタートボタン　　　　　　〃
+
+;------------------------------------------------------------------------------
+; 例えば「本来Ｘボタンで出す弱パンチをＢボタンに変えたい場合」なら、
+;
+; x = b
+;
+; で簡単に出来る。使わないボタンを使っているボタンに割り当てる事も可能。
+;------------------------------------------------------------------------------
+;-| デフォルト設定 |----------------------------------------------------------- 第２部
+
+[Defaults]
+command.time = 15  ;標準のコマンド入力受付時間。
+                   ;各コマンドで省略している場合に有効。
+                   ;このパラメータを消した場合、デフォルトは１フレームになる。
+                   ;（　M.U.G.E.Nでの１フレーム　＝　１／６０秒　）
+
+command.buffer.time = 1  ;標準のコマンド入力記憶時間。
+                         ;入力した直後にコマンドを記憶し、
+                         ;指を離してもコマンドが成功している状態を
+                         ;ここで設定した時間の分維持する。
+                         ;１～３０フレームまでの間で設定可能。
+                         ;デフォルトは１フレーム。
+
+;============================================================================== 第３部
+; コマンド定義パート（入力キーを設定する）
+;==============================================================================
+;------------------------------------------------------------------------------
+; ここがキーとボタンの組み合わせで格闘ゲームにおける
+;『入力コマンド』を直接設定・編集するパート。
+;
+; 一つずつコマンドに名前を付けて入力キーを組み合わせる単純な作業になるけど、
+; 組み合わせが独特だから覚えるのは難易度が少し高い。
+;
+; 下記で「書式の決まり」と「組み合わせに必要なアルファベットと記号」を
+; 全て説明しましょう。
+;------------------------------------------------------------------------------
+;■書式の決まり■
+;
+; [Command]         ：入力コマンドを１個定義する。
+; name = "***"      ：コマンド名を決める。大文字と小文字も区別される。
+; command = ###     ：実際に入力するキーを組み合わせる。詳細は後述。
+; time = &&&        ：入力受付時間を設定（オプション）。
+; buffer.time = @@@ ：入力記憶時間を設定（オプション）。
+;
+; 小ネタでも説明している通り、登録が可能な数は最大『１２８個』まで。
+;
+;
+;※『必須コマンド名』と書いてるコマンドは、システム側で処理してます。
+;　コマンド名を変えたり、消してはいけません。キーの変更は出来ます。
+;------------------------------------------------------------------------------
+;■必要なアルファベットと記号■
+;
+; 上記の「command = ###」の『###』に該当する部分で、
+; 組み合わせるキーとボタンを設定しなければならない。
+;
+; ※設定したキーやボタンはM.U.G.E.Nのオプションモードにある
+;  「キーコンフィグ」にて設定したキーなどに対応しています。
+;
+; ★方向キー★（全て必ず大文字で）
+;
+; 　B 　：「後方」にキーを入れる（ Backward ）
+; 　D 　：「下方」にキーを入れる（ Downward ）
+; 　F 　：「前方」にキーを入れる（ Forward ）
+; 　U 　：「上方」にキーを入れる（ Upward ）
+;
+; 　DB　：「後ろ斜め下」にキーを入れる（「D」と「B」が同時に入力された事を認識）
+; 　UB　：「後ろ斜め上」にキーを入れる（「U」と「B」が同時に入力された事を認識）
+; 　DF　：「前斜め下」にキーを入れる（「D」と「F」が同時に入力された事を認識）
+; 　UF　：「前斜め上」にキーを入れる（「U」と「F」が同時に入力された事を認識）
+;
+; ★ボタン★（全て必ず小文字で）
+;
+; 　a 　：「Ａボタン」を押す
+; 　b 　：「Ｂボタン」を押す
+; 　c 　：「Ｃボタン」を押す
+; 　x 　：「Ｘボタン」を押す
+; 　y 　：「Ｙボタン」を押す
+; 　z 　：「Ｚボタン」を押す
+; 　s 　：「スタートボタン」を押す
+;
+; ★記号★（入力効果を変化させる命令）
+;
+; 　/ 　：（スラッシュ）キーやボタンを「押しっぱなし」にしている事を認識する場合に追加する
+;
+; 　　（例）：　/b       = Ｂボタンを押したままにする
+; 　　　　　　　/F       = 前キーを押したままにする
+; 　　　　　　　/U,z     = 上キーを押したままＺボタンを入力する
+;
+;　　━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+;
+; 　~ 　：（チルダ）キーやボタンが「離された時」を認識する場合に追加する
+;
+; 　　（例）：　~x       = Ｘボタンを離す
+; 　　　　　　　~DF      =「前斜め下」のキーを離す
+; 　　　　　　　~DB,F,c  =「後ろ斜め下」を離した後に前キー・Ｃボタンの順番に入力する
+;
+; 　　　　　　※「ボタンを離すまでの時間（溜め時間）」も設定する事が出来る
+;
+; 　　　　　　　~30x     = Ｘボタンを押したままにして、３０フレーム以上経ったら離す
+; 　　　　　　　~50B,F,a = 後ろキーを５０フレームまで溜めて前キー・Ａボタンの順番に入力する
+;
+;　　━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+;
+; 　$ 　：（ドル）方向キーの「複数の内どれかが入力されている事」を認識する場合に追加する
+;
+; 　　（例）：　$B       =「後方」「後ろ斜め下」「後ろ斜め上」のどれかが入力されている状態
+; 　　　　　　　$UF      =「前」「上」「前斜め上」のどれかが入力されている状態
+;
+; 　　　　　　※この記号は「方向キー」でしか使えません。
+;
+;　　━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+;
+; 　+ 　：（プラス）ボタンを「同時押し」している事を認識する場合に追加する
+;
+; 　　（例）：　x+y      = ＸボタンとＹボタンを同時押しする
+; 　　　　　　　a+b+c    = ＡボタンとＢボタンとＣボタンを同時押しする
+;
+; 　　　　　　※この記号は「ボタン」でしか使えません。
+;
+;　　━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+;
+; 　> 　：（グレーターザン）大なり（Win版で追加された記号）
+; 　　　　　　　　　　　　「他のキーが入力されていない事を確認して、そのキーを押す」場合
+;
+; 　　（例）：　a,>~a    = Ａボタン以外が入力されていない状態でＡボタンを離す
+; 　　　　　　　F,>~F,>F = 前キー以外が入力されていない状態で前キーを離し、
+;　　　　　　　　　　　　　もう一度前キーを入力する
+;
+;-------------------------------------------------------------------------------
+; ●これらの記号は全て組み合わせて使う事が出来る●
+;
+; 　　（例）：　~80$DB,DF,F,/a+y+c
+; 　　　　　　　
+; 　　　　　　「後方」「下」「後ろ斜め下」のどれかを８０フレームまで溜めて
+; 　　　　　　「前斜め下」→「前」を入力した後、ＡとＹとＣを同時押ししたままにする
+;
+;------------------------------------------------------------------------------
+;-| 超必殺技 |-----------------------------------------------------------------
+
+;※名前が同じならば、違うコマンドでも同じステートの技を出す事が可能。
+
+[Command]
+name = "QCFQCF_x"
+command = ~D, DF, F, D, DF, F, x
+time = 20
+
+[Command]
+name = "QCFQCF_y"
+command = ~D, DF, F, D, DF, F, y
+time = 20
+
+[Command]
+name = "QCBQCB_x"
+command = ~D, DB, B, D, DB, B, x;~F, D, DF, F, D, DF, x
+time = 20
+
+[Command]
+name = "QCBQCB_y"
+command = ~D, DB, B, D, DB, B, y;~F, D, DF, F, D, DF, y
+time = 20
+
+;------------------------------------------------------------------------------
+;-| 必殺技 |-------------------------------------------------------------------
+
+[Command]
+name = "upper_x"
+command = ~F, D, DF, x
+
+[Command]
+name = "upper_y"
+command = ~F, D, DF, y
+
+[Command]
+name = "upper_xy"
+command = ~F, D, DF, x+y
+
+[Command]
+name = "QCF_x"
+command = ~D, DF, F, x
+
+[Command]
+name = "QCF_y"
+command = ~D, DF, F, y
+
+
+[Command]
+name = "QCF_a"
+command = ~D, DF, F, a
+
+[Command]
+name = "QCF_b"
+command = ~D, DF, F, b
+
+
+[Command]
+name = "QCF_xy"
+command = ~D, DF, F, x+y
+
+[Command]
+name = "QCB_x"
+command = ~D, DB, B, x
+
+[Command]
+name = "QCB_y"
+command = ~D, DB, B, y
+
+[Command]
+name = "QCB_a"
+command = ~D, DB, B, a
+
+
+[Command]
+name = "QCB_xy"
+command = ~D, DB, B, x+y
+
+[Command]
+name = "FF_ab"
+command = F, F, a+b
+
+[Command]
+name = "FF_a"
+command = F, F, a
+
+[Command]
+name = "FF_b"
+command = F, F, b
+
+;---------------------------
+;(「板投げ」用にコマンドを追加してます)
+[Command]
+name = "board"
+command = ~D, DF, F, a
+
+[Command]
+name = "board"
+command = ~D, DF, F, b
+
+;------------------------------------------------------------------------------
+;-| キー２回連続入力 |---------------------------------------------------------
+
+[Command]
+name = "FF"       ;必須コマンド名
+command = F, F
+time = 10
+
+[Command]
+name = "BB"       ;必須コマンド名
+command = B, B
+time = 10
+
+[Command]
+name = "HighJump"       ;必須コマンド名
+command = D, U
+time = 10
+
+[Command]
+name = "HighJump"       ;必須コマンド名
+command = D, F+U
+time = 10
+
+[Command]
+name = "HighJump"       ;必須コマンド名
+command = D, B+U
+time = 10
+
+;------------------------------------------------------------------------------
+;-| 同時押し |-----------------------------------------------------------------
+
+[Command]
+name = "recovery" ;必須コマンド名
+command = x+y
+time = 1
+
+;------------------------------------------------------------------------------
+;-| 方向キー＋ボタン |---------------------------------------------------------
+
+[Command]
+name = "down_a"
+command = /$D,a
+time = 1
+
+[Command]
+name = "down_b"
+command = /$D,b
+time = 1
+
+;------------------------------------------------------------------------------
+;-| ボタン単発 |---------------------------------------------------------------
+
+[Command]
+name = "a"
+command = a
+time = 1
+
+[Command]
+name = "b"
+command = b
+time = 1
+
+[Command]
+name = "c"
+command = c
+time = 1
+
+[Command]
+name = "x"
+command = x
+time = 1
+
+[Command]
+name = "y"
+command = y
+time = 1
+
+[Command]
+name = "z"
+command = z
+time = 1
+
+[Command]
+name = "start"
+command = s
+time = 1
+
+;---------------------------
+;(「パワー溜め」用にコマンドを追加してます)
+
+[Command]
+name = "hold_b"
+command = /b
+
+
+[Command]
+name = "hold_c"
+command = /c
+
+;------------------------------------------------------------------------------
+;-| 方向キー |-----------------------------------------------------------------
+
+[Command]
+name = "holdfwd"   ;必須コマンド名
+command = /$F
+time = 1
+
+[Command]
+name = "holdback"  ;必須コマンド名
+command = /$B
+time = 1
+
+[Command]
+name = "holdup"    ;必須コマンド名
+command = /$U
+time = 1
+
+[Command]
+name = "holddown"  ;必須コマンド名
+command = /$D
+time = 1
+
+;============================================================================== 第４部
+; ステートエントリーパート（技などを出せるようにするための条件を設定）
+;==============================================================================
+;------------------------------------------------------------------------------
+; コマンド名と入力するコマンドを設定しただけじゃ意味が無いので、ここから
+;「実際に入力したコマンドでどの番号のステートをどういう条件で出せるか」
+; を決めなければならない。
+;
+; ステートコントローラ「ChangeState」しか使わないけど、
+; そんなに難しくないのでトリガーを覚えてたらすぐ出来る。
+;
+; ここさえ押さえておけば簡単なトリガー設定の流れは覚えられるかと。
+;
+; エントリーの順番にはある程度の法則があるけど、
+; おまけフォルダの「小ネタ.txt」を参照。（波動拳が暴発ﾅﾝﾀﾗｶﾝﾀﾗ）
+;
+; ChangeStateなどステートコントローラの基本的な設置例は
+; おまけフォルダの「テンプレート.txt」を参照。
+;------------------------------------------------------------------------------
+; ■準常時監視ステート（－１）■
+; コマンドファイル（のステートエントリーパート）に必要な項目です。
+; 絶対に消してはいけないので要注意。
+;
+; 通常の食らい状態以外の「P2StateNo」や「TargetState」等で制御された、
+; 作成者が任意に指定した相手側の食らいステートに限り、
+; 登録したステートコントローラが有効にはなりません。
+;------------------------------------------------------------------------------
+
+[Statedef -1] ;←この行は絶対に消さないでね。必須項目です。
+
+[state -1,AI起動]
+type = varset
+TriggerAll = Var(59)=0 && !isHelper
+trigger1 = 1
+
+V = 59
+
+;AIレベル 1～5  
+
+Value = 5     ; 左の数値を変更
+
+IgnoreHitPause = 1
+
+;==============================================================================
+; 超必殺技
+;==============================================================================
+;------------------------------------------------------------------------------
+
+
+;------------------------------------------------------------------------------
+; ここで↑にて実際に使っている「スマッシュカンフーアッパーのChangeState」を例に
+; 見て行きましょ！m9っ｀Д´)
+;
+; まず特定のコマンドを入力したいならば、
+; 必ず『呼び出すコマンドのトリガー』は設定しましょう。
+; 特殊な条件でない限り、コマンドは通常「triggerall」の方で設定した方が良い。
+;
+;「triggerall」とは『有効になる状況を限定するための条件』を指定する。
+; triggerallの条件が有効にならない限り、trigger1以降の条件も有効にはならない。
+; 何個でも増やせる。ステート作成の基本テクニックの一つなので覚えておいてね。
+; しかしtriggerallはtrigger1以降が無いと「単体では」使えないので注意。
+;（trigger1以降を全てコメント化してM.U.G.E.Nでそのキャラを選んで試してみよう）
+;
+;
+; ※『パワーゲージ』は「スーパーコンボゲージ」や「超必殺技ゲージ」などで
+; 　呼ばれてる部分のゲージです。
+; 　ゲージが「１０００ポイント」なら『レベル１』と同じ意味になります。
+;
+; 　まぁパッと見、M.U.G.E.Nのパワーゲージって仕組みが
+; 　ストＺＥＲＯシリーズの「スーパーコンボレベルゲージ」まんまだよね（苦笑
+;------------------------------------------------------------------------------
+;割り込み　投げ
+;------------------------------------------------------------------------------
+[State -1, カンフースルー];投げ技
+type = ChangeState
+value = 800
+triggerall = roundstate = 2 && var(59)>0
+triggerall = statetype != A
+triggerall = ctrl
+triggerall = stateno != 100
+
+trigger1 = p2bodydist X < 15
+trigger1 = (p2statetype = S) || (p2statetype = C)
+trigger1 = random<var(59)*40
+
+
+[State -1, しゃがみ弱キック]
+type = ChangeState
+value = 430
+triggerall = roundstate = 2 && var(59)>0
+triggerall = Numhelper(1220) = 0
+triggerall =!inguarddist
+
+triggerall = statetype !=A
+triggerall = p2bodydist X = [0,100]
+
+trigger1 = P2statetype = L
+trigger1 = ctrl || stateno = 100
+trigger1 = random<var(59)*4
+
+;---------------------------------------------------------------------------
+[state -1, backdash]
+type = changestate 
+value = 105
+triggerall = roundstate = 2 && var(59)>0
+triggerall = P2statetype = L
+triggerall =!inguarddist
+triggerall = statetype != A
+trigger1 = p2bodydist X < 100
+trigger1 = ctrl
+
+;------------------------------------------------------------------------------
+;対空
+[State -1, ハイタイム]
+type = ChangeState
+value = 240
+triggerall = roundstate = 2 && var(59)>0
+triggerall = Numhelper(1220) = 0
+triggerall =!inguarddist
+triggerall = statetype != A
+
+trigger1 = p2bodydist X = [-10,95]
+trigger1 = p2bodydist Y = [-65-enemynear(var(40)),vel Y,-30-enemynear(var(40)),vel Y]
+trigger1 = ctrl
+trigger1 = random<var(59)*12
+trigger1 = P2statetype = A
+
+
+
+[State -1,空中ジャンプ]
+type = ChangeState
+value = 45
+triggerall = var(21) = 1
+triggerall = roundstate = 2 && var(59)>0
+triggerall = statetype = A
+triggerall = !inguarddist
+triggerall = P2bodydist X >= -30
+triggerall = ctrl || (stateno = 101)||(stateno = 103)
+
+trigger1 = Enemynear,hitdefattr = SCA,AT
+trigger1 = random<var(59)*18
+
+[State -1,ジャンプ]
+type = ChangeState
+value = 39
+triggerall = roundstate = 2 && var(59)>0
+triggerall = statetype != A
+Triggerall = !inguarddist
+triggerall = ctrl || stateno = 20 ||stateno = 21 || stateno = 100
+
+trigger1 = Enemynear,hitdefattr = SCA,AT
+trigger1 = random<var(59)*18
+
+[State -1, 立ちパンチ]
+type = ChangeState
+value = 200
+triggerall = roundstate = 2 && var(59)>0
+triggerall = p2bodydist X = [0,35]
+triggerall = statetype = S
+triggerall = !inguarddist
+
+
+trigger1 = P2statetype != C
+trigger1 = ctrl 
+trigger1 = random<var(59)*200
+trigger1 = enemynear(var(40)),animtime <= -5
+
+[State -1, 立ち強パンチ]
+type = ChangeState
+value = 210
+triggerall = roundstate = 2 && var(59)>0
+triggerall = p2bodydist X = [5,75]
+triggerall = statetype = S
+triggerall = !inguarddist
+
+trigger1 = ctrl 
+trigger1 = random<var(59)*200
+trigger1 = enemynear(var(40)),animtime <= -8
+
+[state -1,ガード]
+type = changestate
+value = 120
+triggerall = var(59)>0 
+triggerall = ctrl 
+triggerall = InGuardDist
+triggerAll =!EnemyNear,HitdefAttr = SCA,NT,ST,HT
+
+trigger1 = var(59) >= 5                                ;AIレベル5
+trigger2 = var(59) = 4                                ;Aiレベル4
+trigger2 = random = [0,900]
+trigger3 = var(59) = 3                                ;Aiレベル3
+trigger3 = random = [0,800] 
+trigger4 = var(59) = 2                                ;Aiレベル2
+trigger4 = random = [0,700] 
+trigger5 = var(59) = 1                                ;Aiレベル1
+trigger5 = random = [0,500] 
+
+
+
+[State -1, 3000]
+type = ChangeState
+value = 3000
+triggerall = roundstate = 2 && var(59)>0
+triggerall = Numhelper(1220) = 0
+triggerall = power>=1000
+triggerall = statetype != A
+triggerall = !inguarddist
+trigger1 = P2bodydist X >60
+trigger1 = ctrl
+trigger1 = P2statetype = L
+trigger1 = random<var(59)*5
+
+[State -1, 3100]
+type = ChangeState
+value = 3100
+triggerall = roundstate = 2 && var(59)>0
+triggerall = power>=2000
+triggerall = statetype != A
+triggerall = !inguarddist
+
+trigger1 = P2bodydist X >20
+trigger1 = p2bodydist Y = [-30,35]
+trigger1 = ctrl
+trigger1 = Numhelper(10000) || Numhelper(20000)
+trigger1 = random<var(59)*12
+
+
+
+[State -1, 3150]
+type = ChangeState
+value = 3150
+triggerall = roundstate = 2 && var(59)>0
+triggerall = power>=2000
+triggerall = statetype = A
+trigger1 = ctrl
+trigger1 = var(59)*0
+
+
+;==============================================================================
+; 必殺技
+;==============================================================================
+
+
+;------------------------------------------------------------------------------
+;------------------------------------------------------------------------------
+
+
+
+;------------------------------------------------------------------------------
+
+
+
+;------------------------------------------------------------------------------
+
+
+;------------------------------------------------------------------------------
+
+[State -1, 1100]
+type = ChangeState
+value = 1100
+triggerall = roundstate = 2 && var(59)>0
+triggerall = statetype = A
+triggerall = !inguarddist
+triggerall = p2bodydist X = [P2bodydist Y -10,P2bodydist Y +30]
+
+
+trigger1 = ctrl
+trigger1 = random<var(59)*12
+
+
+[State -1, 1120]
+type = ChangeState
+value = 1120
+triggerall = roundstate = 2 && var(59)>0
+triggerall = statetype = A
+triggerall = p2bodydist X = [P2bodydist Y ,P2bodydist Y +60]
+triggerall = !inguarddist
+
+trigger1 = ctrl
+trigger1 = random<var(59)*5
+
+
+[State -1, 1130]
+type = ChangeState
+value = 1130
+triggerall = roundstate = 2 && var(59)>0
+triggerall = statetype = A
+triggerall = p2bodydist X = [P2bodydist Y+ 20,P2bodydist Y +60]
+triggerall = !inguarddist
+
+trigger1 = ctrl
+trigger1 = random<var(59)*5
+
+
+
+;------------------------------------------------------------------------------
+;------------------------------------------------------------------------------
+
+
+;==============================================================================
+; 移動関連
+;==============================================================================
+;------------------------------------------------------------------------------
+
+
+
+;==============================================================================
+; エリアル
+;==============================================================================
+;------------------------------------------------------------------------------
+
+[State -1, ジャンプ弱パンチ]
+type = ChangeState
+value = 600
+triggerall = roundstate = 2 && var(59)>0
+triggerall = p2bodydist X = [0,65+ vel X*3]
+triggerall = p2bodydist Y = [-25,25]
+
+trigger1 = statetype = A
+trigger1 = ctrl || stateno = 101
+trigger1 = random<var(59)*80
+
+
+
+[State -1,兜割り]
+type = ChangeState
+value = 650
+triggerall = roundstate = 2 && var(59)>0
+triggerall = Numhelper(1220) = 0
+triggerall = !inguarddist
+
+trigger1 = p2bodydist X = [0,70]
+trigger1 = p2bodydist Y >-10
+trigger1 = statetype = A
+trigger1 = ctrl
+trigger1 = random<var(59)*8
+
+trigger2 = (stateno = 640) && movecontact=1
+trigger2 = p2bodydist X = [0,60]
+
+trigger3 = (stateno = 630) && movecontact=1
+trigger3 = p2bodydist X = [0,60]
+trigger3 =p2bodydist Y >10
+
+
+
+[State -1, ジャンプ強キック]
+type = ChangeState
+value = 640
+triggerall = roundstate = 2 && var(59)>0
+triggerall = !inguarddist
+
+trigger1 = P2movetype = H
+trigger1 = (stateno = [630,635]) && movecontact
+trigger1 = random<var(59)*200
+
+
+[State -1, ジャンプ弱キック]
+type = ChangeState
+value = 630
+triggerall = roundstate = 2 && var(59)>0
+triggerall = Numhelper(1220) = 0
+triggerall = p2bodydist X = [0,75+ vel X*8]
+triggerall = p2bodydist Y = [-45+ vel Y*5,40+ vel Y*5]
+triggerall = !inguarddist
+
+trigger1 = statetype = A
+trigger1 = ctrl
+trigger1 = random<var(59)*45
+trigger1 = P2movetype != H
+
+
+trigger2 = (stateno = [600,610]) && movecontact
+trigger2 = random<var(59)*200
+trigger2 = P2movetype = H
+
+
+[State -1, 空中強　ラントリ時]
+type = ChangeState
+value = 635
+triggerall = roundstate = 2 && var(59)>0
+triggerall = Numhelper(1220)
+triggerall = p2bodydist X = [0,55+ vel X*3]
+triggerall = p2bodydist Y = [-45,40]
+triggerall = !inguarddist
+
+trigger1 = statetype = A
+trigger1 = ctrl
+trigger1 = random<var(59)*35
+trigger1 = P2movetype != H
+
+
+trigger2 = (stateno = [600,610]) && movecontact
+trigger2 = random<var(59)*200
+trigger2 = P2movetype = H
+
+
+[State -1, ジャンプ強パンチ]
+type = ChangeState
+value = 610
+triggerall = roundstate = 2 && var(59)>0
+triggerall = p2bodydist X = [0,60+ vel X*3]
+triggerall = p2bodydist Y = [-45,0]
+triggerall = !inguarddist
+
+trigger1 = statetype = A
+trigger1 = ctrl
+trigger1 = random<var(59)*30
+trigger1 = P2movetype != H
+
+;trigger2 = Enemynear(var(40)),vel Y = [-5,5]
+trigger2 = stateno = 600
+trigger2 = movecontact
+trigger2 = random<var(59)*200
+trigger2 = P2movetype = H
+
+
+[State -1, ジャンプ強キック]
+type = ChangeState
+value = 640
+triggerall = roundstate = 2 && var(59)>0
+triggerall = p2bodydist X = [0,60+ vel X*3]
+triggerall = p2bodydist Y = [-15,30]
+
+trigger1 = P2movetype = H
+trigger1 = (stateno = [600,630]) && movecontact
+trigger1 = random<var(59)*200
+
+[State -1, ジャンプ弱パンチ]
+type = ChangeState
+value = 600
+triggerall = roundstate = 2 && var(59)>0
+triggerall = p2bodydist X = [0,65+ vel X*3]
+triggerall = p2bodydist Y = [-15+ vel Y*3,15]
+triggerall = !inguarddist
+
+trigger1 = statetype = A
+trigger1 = ctrl
+trigger1 = random<var(59)*60
+trigger1 = P2movetype = H
+
+trigger2 = Enemynear(var(40)),vel Y = [-5,5]
+trigger2 = stateno = 600
+trigger2 = movecontact
+trigger2 = random<var(59)*200
+trigger2 = P2movetype = H
+
+;-------------------------------------------------------------------
+;ハイジャンプ
+;---------------------------------------------------------------
+
+[state -1,varSet];リセット
+type = VarSet 
+trigger1 = vel Y >0
+v = 20
+value = 0
+
+[state -1,varSet]
+type = VarSet 
+trigger1 = stateno = 240 &&movehit =1
+v = 20
+value = 1
+
+[State -1,ハイジャンプ]
+type = ChangeState
+value = 41
+triggerall = roundstate = 2 && var(59)>0
+triggerall = statetype != A
+trigger1 = stateno = 240 && movehit =1
+ctrl = 1
+
+
+
+
+;------------------------------------------------------------------------------
+;エリアル始動
+[State -1, ハイタイム]
+type = ChangeState
+value = 240
+triggerall = roundstate = 2 && var(59)>0
+triggerall = Numhelper(1220) = 0
+triggerall =!inguarddist
+triggerall = statetype != A
+
+trigger1 = p2bodydist X = [65,95]
+trigger1 = ctrl || stateno = 100
+trigger1 = random<var(59)*0
+
+trigger2 = p2bodydist X = [5,95]
+trigger2 = stateno = 230 && movehit = 1
+
+trigger3 = stateno = 430 && movehit = 1
+
+;==============================================================================
+; 通常攻撃技
+;==============================================================================
+;------------------------------------------------------------------------------
+
+[State -1, 切り付け]
+type = ChangeState
+value = 230
+triggerall = roundstate = 2 && var(59)>0
+triggerall = Numhelper(1220) = 0
+triggerall =!inguarddist
+triggerall = p2bodydist X = [5,120]
+trigger1 = statetype = S
+trigger1 = (stateno = 210) && movecontact = 1
+trigger1 = random<var(59)*200
+
+
+[State -1, 立ち強パンチ]
+type = ChangeState
+value = 210
+triggerall = roundstate = 2 && var(59)>0
+triggerall =!inguarddist
+triggerall = p2bodydist X = [5,75]
+triggerall = statetype = S
+
+trigger1 = (stateno = 200) && movecontact = 1
+trigger1 = random<var(59)*200
+
+
+;==============================================================================
+;始動技
+;==============================================================================
+
+
+
+
+[State -1, 1500]
+type = ChangeState
+value = 1500
+triggerall = roundstate = 2 && var(59)>0
+triggerall = statetype = S
+triggerall = P2statetype !=L
+triggerall =!inguarddist
+triggerall = Numhelper(1500) = 0
+
+trigger1 = random<var(59)*12
+trigger1 = ctrl || stateno = 100
+trigger1 = p2dist X >= 60
+
+
+[State -1, 切り付け]
+type = ChangeState
+value = 230
+triggerall = roundstate = 2 && var(59)>0
+triggerall = Numhelper(1220) = 0
+triggerall =!inguarddist
+triggerall = p2bodydist X = [85,140]
+triggerall = P2statetype !=L
+
+trigger1 = statetype = S
+trigger1 = ctrl || stateno = 100
+trigger1 = random<var(59)*15
+
+[State -1, 1000]
+type = ChangeState
+value = 1000
+triggerall = roundstate = 2 && var(59)>0
+triggerall = statetype = S
+triggerall = P2statetype !=L
+triggerall =!inguarddist
+
+trigger1 = random<var(59)*12
+trigger1 = ctrl || stateno = 100
+trigger1 = p2dist X >= 60
+
+
+
+[State -1, 1020]
+type = ChangeState
+value = 1020
+triggerall = roundstate = 2 && var(59)>0
+triggerall = statetype = S
+triggerall = P2statetype !=L
+triggerall =!inguarddist
+
+trigger1 = random<var(59)*2
+trigger1 = ctrl || stateno = 100
+trigger1 = p2dist X >= 100
+
+
+
+[State -1, 1050]
+type = ChangeState
+value = 1050
+triggerall = roundstate = 2 && var(59)>0
+triggerall = statetype = S
+triggerall = P2statetype !=L
+triggerall =!inguarddist
+
+trigger1 = random<var(59)*2
+trigger1 = ctrl
+trigger1 = p2dist X >= 100
+
+
+
+
+
+[State -1, 1200]
+type = ChangeState
+value = 1200
+triggerall = roundstate = 2 && var(59)>0
+triggerall = Numhelper(1220) = 0
+triggerall = statetype = S
+
+trigger1 = random<var(59)*5
+trigger1 = ctrl
+trigger1 = p2dist X >= 100
+
+trigger2 = ctrl
+trigger2 = Numhelper(10000)
+trigger2 = random<var(59)*12
+
+
+[State -1, 立ち弱パンチ]
+type = ChangeState
+value = 200
+triggerall = roundstate = 2 && var(59)>0
+triggerall =!inguarddist
+triggerall = p2bodydist X = [0,35]
+triggerall = statetype = S
+triggerall = P2statetype !=L
+
+trigger1 = p2statetype =S
+trigger1 = ctrl || stateno = 100
+trigger1 = random<var(59)*40
+
+trigger2 = stateno = 200
+trigger2 = movecontact = 3
+trigger2 = random<var(59)*50
+
+
+[State -1, 立ち強パンチ]
+type = ChangeState
+value = 210
+triggerall = roundstate = 2 && var(59)>0
+triggerall =!inguarddist
+triggerall = p2bodydist X = [25,90]
+triggerall = statetype = S
+triggerall = P2statetype !=L
+
+trigger1 = ctrl || stateno = 100
+trigger1 = random<var(59)*20
+
+
+[State -1, 走る]
+type = ChangeState
+value = 100
+triggerall = roundstate = 2 && var(59)>0
+triggerall = statetype = S
+triggerall =!inguarddist
+triggerall = stateno != 100
+
+trigger1 = p2bodydist X > 80
+trigger1 = ctrl
+trigger1 = random<var(59)*5
+
+ctrl = 0
+
+[State -1, バックステップ]
+type = ChangeState
+value = 105
+triggerall = roundstate = 2 && var(59)>0
+triggerall = statetype = S
+triggerall =!inguarddist
+
+trigger1 = backedgedist >62
+trigger1 = ctrl
+trigger1 = random<var(59)*12
+trigger1 = P2bodydist X =[-5,20]
+
+;------------------------------------------------------------------------------
+
+[State -1, しゃがみ弱パンチ]
+type = ChangeState
+value = 400
+triggerall = roundstate = 2 && var(59)>0
+triggerall = P2statetype !=L
+triggerall = statetype !=A
+triggerall = p2bodydist X = [0,50]
+triggerall =!inguarddist
+
+trigger1 = p2statetype =S
+trigger1 = ctrl || stateno = 100
+trigger1 = random<var(59)*20
+
+
+
+[State -1, しゃがみ強パンチ]
+type = ChangeState
+value = 410
+triggerall = roundstate = 2 && var(59)>0
+triggerall = P2statetype !=L
+
+triggerall = statetype !=A
+triggerall = p2bodydist X = [0,100]
+triggerall =!inguarddist
+
+trigger1 = p2statetype =S
+trigger1 = ctrl || stateno = 100
+trigger1 = random<var(59)*40
+
+trigger2 = stateno = 400
+trigger2 = movecontact = 3
+trigger2 = random<var(59)*200
+
+
+[State -1, しゃがみ弱キック]
+type = ChangeState
+value = 430
+triggerall = roundstate = 2 && var(59)>0
+triggerall = Numhelper(1220) = 0
+triggerall = P2statetype !=L
+triggerall =!inguarddist
+
+triggerall = statetype !=A
+triggerall = p2bodydist X = [0,100]
+
+trigger1 = p2statetype =S || P2statetype = L
+trigger1 = ctrl || stateno = 100
+trigger1 = random<var(59)*30
+
+trigger2 = stateno = 410
+trigger2 = movecontact = 3
+trigger2 = random<var(59)*200
+
+
+
+
+[State -1,空中ジャンプ]
+type = ChangeState
+value = 45
+triggerall = var(21) = 1
+triggerall = roundstate = 2 && var(59)>0
+triggerall = statetype = A
+triggerall = !inguarddist
+triggerall = P2bodydist X >= -30
+triggerall = ctrl || (stateno = 101)||(stateno = 103)
+
+trigger1 = vel Y = [-2,2]
+trigger1 = random<var(59)*5 + var(59)
+trigger1 = P2movetype != H
+
+trigger2 = Enemynear,hitdefattr = SCA,AT
+trigger2 = random<var(59)*8 + var(59)*10
+
+trigger3 = vel Y = [-2,2]
+trigger3 = P2bodydist X < 100
+trigger3 = P2statetype != A
+trigger3 = random<var(59)*5+var(59)*(P2statetype = C)*2+var(59)*(P2statetype=S)
+trigger3 = P2movetype != H
+
+trigger4 = vel Y = [-2,2]
+trigger4 = P2dist Y <=0
+trigger4 = random<var(59)*25 
+trigger4 = P2movetype != H
+
+
+[State -1,ジャンプ]
+type = ChangeState
+value = 39
+triggerall = roundstate = 2 && var(59)>0
+triggerall = statetype != A
+Triggerall = !inguarddist
+triggerall = ctrl || stateno = 20 ||stateno = 21 || stateno = 100
+
+trigger1 = random<var(59)*4
+trigger1 = P2dist Y >= 0
+trigger1 = P2movetype != H
+
+trigger2 = P2movetype != H
+trigger2 = P2statetype = A
+trigger2 = random<var(59)*5
+
+trigger3 = Numhelper(10000) 
+trigger3 = random<var(59)*5
+
+trigger4 = p2statetype != A && p2BodyDist X >= 80 && enemynear,NumProj > 0
+trigger4 = random<var(59)*20
+
+trigger5 = p2statetype != A && p2BodyDist X >= 120 && p2movetype = A && EnemyNear,NumHelper > 0
+trigger5 = random<var(59)*12
+
+ctrl = 1
+
+[State -1,ハイジャンプ]
+type = ChangeState
+value = 41
+triggerall = roundstate = 2 && var(59)>0
+triggerall = statetype != A
+trigger1 = random<var(59)*0
+trigger1 = ctrl || stateno = 100
+
+
+[State -1, AirDash F]
+type = ChangeState
+value = 101
+triggerall = roundstate = 2 && var(59)>0
+triggerall = statetype = A
+triggerall = Enemy,Numproj = 0
+triggerall = stateno !=101
+triggerall = stateno !=103
+
+trigger1 = !inguarddist
+trigger1 = ctrl
+trigger1 = P2statetype != L
+trigger1 = random<var(59)*5 
+trigger1 = random<var(59)*5 || Enemynear(var(40)),time>=30
+trigger1 = P2bodydist X >40
+trigger1 = P2movetype != H
+
+trigger2 = !inguarddist
+trigger2 = ctrl
+trigger2 = Numhelper(10000) 
+trigger2 = random<var(59)*4
+trigger2 = p2bodydist X >50
+trigger2 = P2movetype != H
+
+trigger3 = vel Y = [-3,3]
+trigger3 = !inguarddist
+trigger3 = ctrl
+trigger3 = backedgedist <20
+trigger3 = P2statetype != L
+
+trigger4 = vel Y = [-2,2]
+trigger4 = p2statetype != A && p2BodyDist X >= 80 && enemynear,NumProj > 0
+trigger4 = random<var(59)*20
+
+trigger5 = vel Y = [-2,2]
+trigger5 = p2statetype != A && p2BodyDist X >= 120 && p2movetype = A && EnemyNear,NumHelper > 0
+trigger5 = random<var(59)*12
+
+[State -1, AirDash B]
+type = ChangeState
+value = 103
+triggerall = roundstate = 2 && var(59)>0
+triggerall = statetype = A
+triggerall = Enemy,Numproj = 0
+triggerall = stateno !=101
+triggerall = stateno !=103
+
+trigger1 = ctrl
+trigger1 = random<var(59)*5 
+trigger1 = random<var(59)*3 || P2statetype =A || P2stateno = [35,49]
+trigger1 = !inguarddist
+trigger1 = P2bodydist X >=-20
+trigger1 = P2movetype != H
+trigger1 = P2dist Y >= 0
+
+
+
+[State -1, ラントリ時ルーチェ＆オンブラ]
+type = ChangeState
+value = 235
+triggerall = roundstate = 2 && var(59)>0
+triggerall = Numhelper(1220)
+triggerall =!inguarddist
+
+trigger1 = statetype = S
+trigger1 = ctrl || stateno = 100
+trigger1 = random<var(59)*3
+
+
+
+
+
+;------------------------------------------------------------------------------
+
+[State -1, 挑発]
+type = ChangeState
+value = 195
+triggerall = roundstate = 2 && var(59)>0
+trigger1 = statetype != A
+trigger1 = ctrl
+trigger1 = random<var(59)*0
+
+
+
+
+
+
+;------------------------------------------------------------------------------
+;------------------------------------------------------------------------------
+;------------------------------------------------------------------------------

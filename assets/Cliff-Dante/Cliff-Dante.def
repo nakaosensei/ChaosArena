@@ -1,0 +1,39 @@
+; Definition file for dante
+; Contains all the filenames needed for the character
+
+; Player information 
+ 
+[Info]
+name             ="Dante-By cliff-A"
+displayname      ="Cliff-Dante"
+versiondate      =09/30/16
+mugenversion     =Mugen1.1
+author           ="CLIFF-A"
+pal.defaults     =1,2,3,4,5,6
+
+
+[Files]
+cmd      =AI-Patch\AI-ToGo.cmd
+cns      =CNS-States\Cliff-Dante.cns
+st       =CNS-States\Cliff-Dante.cns
+stcommon =CNS-States\Common.cns
+sprite   =Sprites\Cliff-Dante.sff
+anim     =Sprites\Cliff-Dante.air
+sound    =Sounds\Cliff-Dante.snd
+pal1=Palettes\Red.act
+pal2=Palettes\Blue.act
+pal3=Palettes\White.act
+pal4=Palettes\Yellow.act
+pal5=Palettes\Green.act
+pal6=Palettes\Orange.act
+st1=CNS-States\Basics.cns
+st2=CNS-States\Specials-Hypers.cns
+st3=CNS-States\Devil-Trigger.cns
+st4=CNS-States\Vergil-Support.cns
+st5=CNS-States\Guage.cns
+st6=CNS-States\Movelist.cns
+
+
+[Arcade]
+intro.storyboard  =Intro/intro.def
+ending.storyboard =Ending/ending.def

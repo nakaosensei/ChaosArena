@@ -1,0 +1,111 @@
+[Dante's Readme];MAKE SURE TO READ EVERYTHING, MORTAL...
+
+Name: Dante
+Series/Games: devil maycry/DMC3,DMC4/DMC Anime
+Author: CLIFF-A
+Version Date: 09/30/16
+Mugen Version: 1.1
+
+
+=======Team:
+CS-Team
+
+
+=======Site:
+CSmugen.ucoz.com
+
+
+=======Testers:
+Coded and Tested in mugen1.1 By: me.
+
+
+======Palette Colors:
+By: Me.
+
+
+======Sprites:
+Sprite Style - Project X Zone 
+Sprites: ripped by 
+-Dazz
+-Ploaj
+Sprite Source
+http://www.spriters-resource.com/3ds/projectxzone2/
+
+
+=======Credits:
+Special Thanks to:
+
+-Ryon: For Palette Changer codes
+
+-Elecbyte: For The Dope DMC Gauge Codes And Sprite FX
+
+-YAMATO: For Sprite FX
+
+-Bugya: For Sprite FX Of Vergil
+
+-V-nix: For The Jackpot Explosion Sprite Fx
+
+;------;
+If I MISS ANY CREDITS THAT MEANS YOU DIDN'T ADD YOUR NAME
+ON THE MATERIALS I USED SUCH AS FX, SPRITES, ETC.........
+
+
+=======Dante Sounds:
+Ripped By Me.  
+
+ 
+;----------------------------------------------------------;
+=======Info:
+Dante: 
+
+
+-Shot Gun 
+*Has its own win pose
+-Rocket Launcher
+*Has its own win pose
+-Nevan During Devil Trigger 
+*Has its own win pose
+-Nevan Barrage During Devil Trigger
+*Has its own win pose
+-Vergil
+*leaves after getting hit but doesn't while in devil trigger
+
+
+Funimations:
+The char is really fun to play with, and is full 
+of Mele-Attacks and special tricks.The movelist 
+is in the char itself, just holdDown and C&Y&S(Enter). 
+The Movelist for devil trigger is holdoown S(ENTER)
+If you find any bugs that you want me to fix, 
+contact me at my site or Youtube Channel.There's an AI patch, so 
+if you want The char with a stronger AI, or not, just open the 
+Ai Patch folder and read the ReadMe Notepad before adding it. 
+While n devil trigger his life increase's slowly and poweradd(fast).
+I might code more project x zone style chars, just maybe.
+
+======My Youtbe Channel:
+User: Name; Karasgold
+http://www.youtube.com/user/karasgold?feature=mhee
+
+
++++++++++++++++++++++WARNING
+DO NOT TRY TO EDIT ON THIS CHAR IF 
+YOUR NOT A CODER. JUST BY REPLACING THE 
+SPRITES OF DANTE ALONE MIGHT END UP IN TOTAL 
+cHAOS FOR YOU, CAUSING YOU TO RE-DOWNLOADING THE 
+CHAR AGAIN. THE CODES ARE KINDA ADVANCED 
+SO HEED MY WARNING... NOOB-SAIBOTS. lol 
+
+...................__
+............./´¯/'...'/´¯¯`·¸
+........../'/.../..../......./¨¯\
+........('(...´...´.... ¯~/'...')
+.........\.................'...../
+..........''...\.......... _.·´
+............\..............(
+BROFIST ..................... Devil May Cry
+
+
+------------------------------------------------------>
+^_^ ^_^ ^_^ Enjoy The Char and HAVE FUN ^_^ ^_^ ^_^ 
+------------------------------------------------------>
